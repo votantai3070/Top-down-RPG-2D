@@ -1,6 +1,4 @@
-using UnityEngine;
-
-public class Player_IdleState : PlayerState
+public class Player_IdleState : Player_GroundState
 {
     public Player_IdleState(Player player, StateMachine stateMachine, string animBoolName) : base(player, stateMachine, animBoolName)
     {
@@ -11,20 +9,15 @@ public class Player_IdleState : PlayerState
     {
         base.Enter();
 
-        anim.SetFloat("xIdle", player.xIdle);
-        anim.SetFloat("yIdle", player.yIdle);
-    }
-
-    public override void Exit()
-    {
-        base.Exit();
+        anim.SetFloat("xIdleAndAttack", player.xIdleAndAttack);
+        anim.SetFloat("yIdleAndAttack", player.yIdleAndAttack);
     }
 
     public override void Update()
     {
         base.Update();
 
-        if (controls.moveInput != Vector2.zero)
+        if (controls.moveInput.magnitude > 0)
         {
             stateMachine.ChangeState(player.moveState);
         }

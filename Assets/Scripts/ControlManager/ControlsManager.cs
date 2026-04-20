@@ -25,7 +25,11 @@ public class ControlsManager : MonoBehaviour
         // Move input
         inputActions.Player.Move.performed += ctx => moveInput = ctx.ReadValue<Vector2>();
         inputActions.Player.Move.canceled += ctx => moveInput = Vector2.zero;
+
+
     }
+
+    public bool PressedAttack() => inputActions.Player.Attack.WasPressedThisFrame();
 
     private void OnEnable()
     {

@@ -1,19 +1,9 @@
 using UnityEngine;
 
-public class Player_MoveState : PlayerState
+public class Player_MoveState : Player_GroundState
 {
     public Player_MoveState(Player player, StateMachine stateMachine, string animBoolName) : base(player, stateMachine, animBoolName)
     {
-    }
-
-    public override void Enter()
-    {
-        base.Enter();
-    }
-
-    public override void Exit()
-    {
-        base.Exit();
     }
 
     public override void Update()
@@ -26,10 +16,10 @@ public class Player_MoveState : PlayerState
         anim.SetFloat("xMove", moveInputX);
         anim.SetFloat("yMove", moveInputY);
 
-        if (controls.moveInput != Vector2.zero)
+        if (controls.moveInput != Vector2.zero || controls.PressedAttack())
         {
-            player.xIdle = moveInputX;
-            player.yIdle = moveInputY;
+            player.xIdleAndAttack = moveInputX;
+            player.yIdleAndAttack = moveInputY;
         }
 
         player.SetVelocity(moveInputX * player.moveSpeed, moveInputY * player.moveSpeed);
