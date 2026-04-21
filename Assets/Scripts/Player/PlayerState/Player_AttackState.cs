@@ -8,6 +8,7 @@ public class Player_AttackState : PlayerState
     {
         base.Enter();
 
+        player.canTrigger = false;
 
         anim.SetFloat("AttackSpeed", player.attackSpeed);
         anim.SetFloat("xIdleAndAttack", player.xIdleAndAttack);
@@ -25,9 +26,9 @@ public class Player_AttackState : PlayerState
 
         player.SetVelocity(0, 0);
 
-        if (player.canTriggerAttack)
+        if (player.canTrigger)
         {
-            player.canTriggerAttack = false;
+            player.canAttack = false;
             stateMachine.ChangeState(player.idleState);
         }
     }

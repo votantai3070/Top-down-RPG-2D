@@ -9,5 +9,7 @@ public class EntityAnimationEvents : MonoBehaviour
         entity = GetComponentInParent<Entity>();
     }
 
-    private void AttackOnTrigger() => entity.canTriggerAttack = true;
+    private void TriggerEvent() => entity.canTrigger = true;
+
+    private void AttackTrigger() => entity.canAttack = true;
 }
