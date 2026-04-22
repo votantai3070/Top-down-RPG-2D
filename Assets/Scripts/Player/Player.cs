@@ -1,3 +1,5 @@
+using UnityEngine;
+
 public class Player : Entity
 {
     public ControlsManager controls { get; private set; }
@@ -26,5 +28,14 @@ public class Player : Entity
     protected override void Update()
     {
         base.Update();
+
+        LookAttackIfNeeded();
+    }
+
+    private void LookAttackIfNeeded()
+    {
+        Vector2 lookDir = ControlsManager.instance.lookInput;
+        xIdleAndAttack = lookDir.x;
+        yIdleAndAttack = lookDir.y;
     }
 }

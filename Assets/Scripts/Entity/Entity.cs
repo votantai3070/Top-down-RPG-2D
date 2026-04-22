@@ -19,8 +19,8 @@ public class Entity : MonoBehaviour
     public float attackDamage = 10;
 
     [Header("Knockback")]
-    [SerializeField] private Vector2 knockBackPower;
-    [SerializeField] private Vector2 heavyKnockBackPower;
+    [SerializeField] private Vector2 knockBackPower = new Vector2(5f, 5f);
+    [SerializeField] private Vector2 heavyKnockBackPower = new Vector2(10f, 10f);
     [SerializeField] private float knockBackDuration = .1f;
     public Coroutine knockbackCo;
     [SerializeField] private float heavyKnockBackThreshold = .3f;

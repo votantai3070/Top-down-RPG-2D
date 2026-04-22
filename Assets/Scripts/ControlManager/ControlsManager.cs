@@ -1,23 +1,50 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class ControlsManager : MonoBehaviour
 {
     public static ControlsManager instance { get; private set; }
 
+    public Player player { get; private set; }
     public PlayerControls inputActions;
 
     public Vector2 moveInput { get; private set; }
+    public Vector2 lookInput { get; private set; }
 
     private void Awake()
     {
         instance = this;
 
         inputActions = new PlayerControls();
+        player = FindFirstObjectByType<Player>();
     }
 
     private void Start()
     {
         AssignInputEvents();
+    }
+
+    private void Update()
+    {
+        Debug.Log("Look Input: " + lookInput);
+
+        SetupLookInput();
+    }
+
+    private void SetupLookInput()
+    {
+        if (Mouse.current != null)
+        {
+            Vector2 mouseScreen = Mouse.current.position.ReadValue();
+            float camZ = -Camera.main.transform.position.z;
+            Vector3 worldPos = Camera.main.ScreenToWorldPoint(new Vector3(mouseScreen.x, mouseScreen.y, camZ));
+            lookInput = ((Vector2)(worldPos - player.transform.position)).normalized;
+        }
+        else
+        {
+            // Gamepad fallback
+            lookInput = inputActions.Player.Look.ReadValue<Vector2>().normalized;
+        }
     }
 
     private void AssignInputEvents()
@@ -26,6 +53,7 @@ public class ControlsManager : MonoBehaviour
         inputActions.Player.Move.performed += ctx => moveInput = ctx.ReadValue<Vector2>();
         inputActions.Player.Move.canceled += ctx => moveInput = Vector2.zero;
 
+        // Look input
 
     }
 

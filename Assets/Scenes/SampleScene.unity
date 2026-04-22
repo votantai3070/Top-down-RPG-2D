@@ -779,8 +779,8 @@ MonoBehaviour:
   attackRange: 2
   attackRadius: 1
   attackDamage: 10
-  knockBackPower: {x: 1, y: 1}
-  heavyKnockBackPower: {x: 3, y: 3}
+  knockBackPower: {x: 5, y: 5}
+  heavyKnockBackPower: {x: 10, y: 10}
   knockBackDuration: 0.1
   heavyKnockBackThreshold: 0.3
   isKnockBack: 0

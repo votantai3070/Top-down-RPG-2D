@@ -5,6 +5,7 @@ public class Entity_Combat : MonoBehaviour
     [SerializeField] private Transform attackArea;
     public LayerMask enemyLayer;
     private Player player;
+    private bool canHit;
     [SerializeField] Collider2D[] showTargetEnemies;
 
     private void Awake()
@@ -15,6 +16,23 @@ public class Entity_Combat : MonoBehaviour
     private void Update()
     {
         showTargetEnemies = FindAttackTarget(attackArea);
+    }
+
+    public void Attack()
+    {
+        Collider2D[] targetEnemies = FindAttackTarget(attackArea);
+        foreach (Collider2D enemy in targetEnemies)
+        {
+            if (enemy.TryGetComponent(out IDamageable damageable))
+            {
+                canHit = damageable.TakeDamage(player.attackDamage, transform);
+
+                if (canHit)
+                {
+                    Debug.Log("Hit " + enemy.name);
+                }
+            }
+        }
     }
 
     public Collider2D[] FindAttackTarget(Transform attackArea)
