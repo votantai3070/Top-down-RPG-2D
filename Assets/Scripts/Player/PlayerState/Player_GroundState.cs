@@ -10,16 +10,20 @@ public class Player_GroundState : PlayerState
     {
         base.Update();
 
+        // Transition to Attack State
         if (controls.PressedAttack())
         {
             stateMachine.ChangeState(player.attackState);
         }
 
+        // Transition to Move State
         if (player.isSprinting == false && controls.moveInput != Vector2.zero)
         {
             stateMachine.ChangeState(player.moveState);
         }
 
+        #region Dash & Sprint
+        // Press Shift
         if (controls.inputActions.Player.Sprint.WasPressedThisFrame())
         {
             if (player.hasDashed == false)
@@ -52,7 +56,6 @@ public class Player_GroundState : PlayerState
             player.isHolding = false;
             player.holdTimer = 0f;
         }
-
-
+        #endregion
     }
 }
