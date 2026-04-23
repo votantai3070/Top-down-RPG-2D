@@ -16,7 +16,6 @@ public class ControlsManager : MonoBehaviour
         instance = this;
 
         inputActions = new PlayerControls();
-        player = FindFirstObjectByType<Player>();
     }
 
     private void Start()
@@ -26,13 +25,17 @@ public class ControlsManager : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log("Look Input: " + lookInput);
-
         SetupLookInput();
+    }
+
+    public void Init(Player owner)
+    {
+        player = owner;
     }
 
     private void SetupLookInput()
     {
+        // Mouse input takes priority over gamepad input for looking direction
         if (Mouse.current != null)
         {
             Vector2 mouseScreen = Mouse.current.position.ReadValue();
@@ -53,10 +56,9 @@ public class ControlsManager : MonoBehaviour
         inputActions.Player.Move.performed += ctx => moveInput = ctx.ReadValue<Vector2>();
         inputActions.Player.Move.canceled += ctx => moveInput = Vector2.zero;
 
-        // Look input
-
     }
 
+    // Attack input
     public bool PressedAttack() => inputActions.Player.Attack.WasPressedThisFrame();
 
     private void OnEnable()

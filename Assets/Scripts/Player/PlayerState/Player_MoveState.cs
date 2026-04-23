@@ -16,7 +16,7 @@ public class Player_MoveState : Player_GroundState
         anim.SetFloat("xMove", moveInputX);
         anim.SetFloat("yMove", moveInputY);
 
-        if (controls.moveInput != Vector2.zero || controls.PressedAttack())
+        if (controls.moveInput != Vector2.zero)
         {
             player.xIdleAndAttack = moveInputX;
             player.yIdleAndAttack = moveInputY;
@@ -28,6 +28,5 @@ public class Player_MoveState : Player_GroundState
         {
             stateMachine.ChangeState(player.idleState);
         }
-
     }
 }

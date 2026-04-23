@@ -8,7 +8,10 @@ public class Player_AttackState : PlayerState
     {
         base.Enter();
 
+        player.canLookAttack = true;
         player.canTrigger = false;
+
+        player.LookAttackIfNeeded();
 
         anim.SetFloat("AttackSpeed", player.attackSpeed);
         anim.SetFloat("xIdleAndAttack", player.xIdleAndAttack);
@@ -26,9 +29,12 @@ public class Player_AttackState : PlayerState
 
         player.SetVelocity(0, 0);
 
+
         if (player.canTrigger)
         {
             player.canAttack = false;
+            player.canLookAttack = false;
+
             stateMachine.ChangeState(player.idleState);
         }
     }

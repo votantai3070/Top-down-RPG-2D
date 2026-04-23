@@ -16,10 +16,5 @@ public class Player_IdleState : Player_GroundState
     public override void Update()
     {
         base.Update();
-
-        if (controls.moveInput.magnitude > 0)
-        {
-            stateMachine.ChangeState(player.moveState);
-        }
     }
 }

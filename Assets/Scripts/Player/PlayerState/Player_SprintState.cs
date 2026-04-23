@@ -1,0 +1,42 @@
+using UnityEngine;
+
+public class Player_SprintState : Player_GroundState
+{
+    public Player_SprintState(Player player, StateMachine stateMachine, string animBoolName) : base(player, stateMachine, animBoolName)
+    {
+    }
+
+    public override void Enter()
+    {
+        base.Enter();
+
+        float animSpeed = player.sprintSpeed / player.moveSpeed;
+
+        anim.SetFloat("MoveSpeed", animSpeed);
+    }
+
+    public override void Exit()
+    {
+        base.Exit();
+    }
+
+    public override void Update()
+    {
+        base.Update();
+
+        float moveInputX = controls.moveInput.x;
+        float moveInputY = controls.moveInput.y;
+
+        anim.SetFloat("xMove", moveInputX);
+        anim.SetFloat("yMove", moveInputY);
+
+        player.SetVelocity(moveInputX * player.sprintSpeed, moveInputY * player.sprintSpeed);
+
+        if (controls.moveInput == Vector2.zero)
+        {
+            stateMachine.ChangeState(player.idleState);
+        }
+
+
+    }
+}
