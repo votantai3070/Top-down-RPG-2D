@@ -19,8 +19,6 @@ public class AttackArea : MonoBehaviour
             collider.enabled = true;
         else
             collider.enabled = false;
-
-
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

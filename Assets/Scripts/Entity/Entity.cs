@@ -54,6 +54,9 @@ public class Entity : MonoBehaviour
 
     public void SetVelocity(float x, float y)
     {
+        if (isKnockBack)
+            return;
+
         rb.linearVelocity = new(x, y);
     }
 
