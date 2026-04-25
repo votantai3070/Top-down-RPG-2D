@@ -1,49 +1,54 @@
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class Entity_Combat : MonoBehaviour
 {
-    [SerializeField] private Transform attackArea;
-    public LayerMask enemyLayer;
-    private Player player;
-    private bool canHit;
-    [SerializeField] Collider2D[] showTargetEnemies;
+    [SerializeField] private HashSet<IDamageable> hitThisAttack = new();
 
-    private void Awake()
-    {
-        player = GetComponent<Player>();
-    }
+    [SerializeField] protected Transform attackArea;
+    [SerializeField] protected LayerMask enemyLayer;
+    [SerializeField] protected Collider2D[] showTargetEnemies;
+
+    [Header("Attack Settings")]
+    protected float attackRadius = 1f;
+    private float lastAttackTime = -999f;
+    [SerializeField] private float attackCooldownGuard = 0.1f; // 100ms
+
+    private bool canHit;
 
     private void Update()
     {
         showTargetEnemies = FindAttackTarget(attackArea);
     }
 
-    public void Attack()
+    public void ResetHitList() => hitThisAttack.Clear();
+
+    public virtual void Attack(Entity dealer)
     {
-        Collider2D[] targetEnemies = FindAttackTarget(attackArea);
-        foreach (Collider2D enemy in targetEnemies)
+        if (!CanAttack()) return;
+
+        lastAttackTime = Time.time;
+
+        hitThisAttack.Clear();
+        foreach (Collider2D enemy in FindAttackTarget(attackArea))
         {
             if (enemy.TryGetComponent(out IDamageable damageable))
             {
-                canHit = damageable.TakeDamage(player.attackDamage, transform);
-
-                if (canHit)
-                {
-                    Debug.Log("Hit " + enemy.name);
-                }
+                if (hitThisAttack.Contains(damageable)) continue;
+                hitThisAttack.Add(damageable);
+                damageable.TakeDamage(dealer.attackDamage, dealer.transform);
             }
         }
     }
 
-    public Collider2D[] FindAttackTarget(Transform attackArea)
+    public virtual Collider2D[] FindAttackTarget(Transform attackArea)
     {
         this.attackArea = attackArea;
-        return Physics2D.OverlapCircleAll(attackArea.position, 1f, enemyLayer);
+        return Physics2D.OverlapCircleAll(attackArea.position, attackRadius, enemyLayer);
     }
 
-    //private void OnDrawGizmosSelected()
-    //{
-    //    Gizmos.color = Color.red;
-    //    Gizmos.DrawWireSphere(attackArea.position, player.attackRadius);
-    //}
+    public bool CanAttack()
+    {
+        return Time.time >= lastAttackTime + attackCooldownGuard;
+    }
 }

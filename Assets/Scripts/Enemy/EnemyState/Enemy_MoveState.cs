@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Enemy_MoveState : EnemyState
+public class Enemy_MoveState : Enemy_GroundState
 {
     private Vector2 direction;
     private float arriveDistance = 0.3f;
@@ -30,13 +30,12 @@ public class Enemy_MoveState : EnemyState
 
         if (Vector2.Distance(enemy.transform.position, destination) <= arriveDistance)
             stateMachine.ChangeState(enemy.idleState);
+
     }
 
     public override void Exit()
     {
         base.Exit();
-
-
     }
 
     private void GetDirection()

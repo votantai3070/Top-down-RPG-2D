@@ -3,6 +3,7 @@ using UnityEngine;
 public class Player : Entity
 {
     public ControlsManager controls { get; private set; }
+    public Player_Combat combat { get; private set; }
 
     public Player_IdleState idleState { get; private set; }
     public Player_MoveState moveState { get; private set; }
@@ -11,6 +12,7 @@ public class Player : Entity
     public Player_SprintState sprintState { get; private set; }
 
     [Space]
+
     public bool canLookAttack;
 
     [Header("Dash & Sprint")]
@@ -27,6 +29,7 @@ public class Player : Entity
     {
         base.Awake();
         controls = ControlsManager.instance;
+        combat = GetComponent<Player_Combat>();
         controls.Init(this);
 
         idleState = new(this, stateMachine, "Idle");

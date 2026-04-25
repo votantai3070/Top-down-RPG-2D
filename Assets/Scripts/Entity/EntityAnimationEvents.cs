@@ -1,15 +1,19 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class EntityAnimationEvents : MonoBehaviour
 {
     private Entity entity;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         entity = GetComponentInParent<Entity>();
     }
 
-    private void TriggerEvent() => entity.canTrigger = true;
+    protected virtual void TriggerEvent() => entity.canTrigger = true;
 
-    private void AttackTrigger() => entity.canAttack = true;
+    private void AttackTrigger()
+    {
+        entity.entityCombat.ResetHitList();
+        entity.entityCombat.Attack(entity);
+    }
 }

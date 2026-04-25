@@ -3,6 +3,7 @@ using UnityEngine;
 public class Entity_Health : MonoBehaviour, IDamageable
 {
     private Entity entity;
+    public int health;
 
     private void Awake()
     {
@@ -12,9 +13,11 @@ public class Entity_Health : MonoBehaviour, IDamageable
     public bool TakeDamage(float damage, Transform damagedDealer)
     {
         TakeKnockback(damagedDealer, damage);
+        health -= (int)damage;
 
         return true;
     }
+
 
     private void TakeKnockback(Transform damagedDealer, float finalDamage)
     {

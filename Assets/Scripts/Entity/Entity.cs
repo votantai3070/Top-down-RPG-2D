@@ -26,10 +26,7 @@ public class Entity : MonoBehaviour
     [SerializeField] private float heavyKnockBackThreshold = .3f;
     public bool isKnockBack;
 
-
-
     public bool canTrigger;
-    public bool canAttack;
 
     protected virtual void Awake()
     {

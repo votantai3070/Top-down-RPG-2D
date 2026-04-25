@@ -1,9 +1,14 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Enemy : Entity
 {
+    public Transform player { get; private set; }
+    public Enemy_Combat combat { get; private set; }
+
     public Enemy_IdleState idleState { get; private set; }
     public Enemy_MoveState moveState { get; private set; }
+    public Enemy_ChaseState chaseState { get; private set; }
+    public Enemy_AttackState attackState { get; private set; }
 
     [SerializeField] private Transform[] patrolPoints;
     private Vector3[] patrolPointsPosition;
@@ -11,11 +16,29 @@ public class Enemy : Entity
 
     public float idleTimer { get; set; } = 2f;
 
+    [Header("Detection")]
+    public float detectionRadius = 5f;
+    public float detectionAngle = 90f;
+
+    [Header("Chase Info")]
+    public float chaseSpeed = 8f;
+
+    [Header("Attack Info")]
+    public Vector2 backOffset = new(0.5f, 0.5f);
+    public float attackDistanceToPlayer = 1f;
+
+    public Vector2 facingDirection { get; private set; }
+
     protected override void Awake()
     {
         base.Awake();
+
+        combat = GetComponent<Enemy_Combat>();
+
         idleState = new(this, stateMachine, "Idle");
         moveState = new(this, stateMachine, "Move");
+        chaseState = new(this, stateMachine, "Chase");
+        attackState = new(this, stateMachine, "Attack");
     }
 
     protected override void Start()
@@ -23,11 +46,30 @@ public class Enemy : Entity
         InitializePatrolPoints();
 
         stateMachine.InitializeState(idleState);
+
+        facingDirection = Vector2.down;
     }
 
     protected override void Update()
     {
         base.Update();
+
+        Vector2 input = new(anim.GetFloat("xMove"), anim.GetFloat("yMove"));
+        if (input != Vector2.zero)
+            facingDirection = input.normalized;
+    }
+
+    public void SetPlayer(Transform player)
+    {
+        this.player = player;
+    }
+
+    public bool IsPlayerInAttackRange()
+    {
+        if (player == null) return false;
+
+        float distance = Vector2.Distance(transform.position, player.position);
+        return distance <= attackDistanceToPlayer;
     }
 
     public Vector3 GetPatrolDestination()
@@ -51,5 +93,16 @@ public class Enemy : Entity
             patrolPointsPosition[i] = patrolPoints[i].position;
             patrolPoints[i].gameObject.SetActive(false);
         }
+    }
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, detectionRadius);
+
+        Gizmos.color = Color.red;
+        Vector3 leftDir = Quaternion.Euler(0, 0, detectionAngle / 2f) * facingDirection;
+        Vector3 rightDir = Quaternion.Euler(0, 0, -detectionAngle / 2f) * facingDirection;
+        Gizmos.DrawRay(transform.position, leftDir * detectionRadius);
+        Gizmos.DrawRay(transform.position, rightDir * detectionRadius);
     }
 }

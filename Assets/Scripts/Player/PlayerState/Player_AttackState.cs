@@ -32,7 +32,6 @@ public class Player_AttackState : PlayerState
 
         if (player.canTrigger)
         {
-            player.canAttack = false;
             player.canLookAttack = false;
 
             stateMachine.ChangeState(player.idleState);
