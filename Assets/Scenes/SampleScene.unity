@@ -237,7 +237,8 @@ MonoBehaviour:
   detectionRadius: 5
   detectionAngle: 90
   chaseSpeed: 7
-  backOffset: {x: 0.5, y: 0.5}
+  chaseStopDistance: 1.5
+  backOffset: {x: 10, y: 10}
   attackDistanceToPlayer: 0.2
 --- !u!50 &62045032
 Rigidbody2D:
@@ -283,7 +284,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   showTargetEnemies: []
-  attackCooldownGuard: 0.1
+  attackCooldownGuard: 2
 --- !u!1 &155408968
 GameObject:
   m_ObjectHideFlags: 0
@@ -617,8 +618,8 @@ MonoBehaviour:
   attackRange: 0.8
   attackRadius: 1
   attackDamage: 10
-  knockBackPower: {x: 1, y: 1}
-  heavyKnockBackPower: {x: 3, y: 3}
+  knockBackPower: {x: 5, y: 5}
+  heavyKnockBackPower: {x: 10, y: 10}
   knockBackDuration: 0.1
   heavyKnockBackThreshold: 0.3
   isKnockBack: 0

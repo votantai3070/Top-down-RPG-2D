@@ -1,4 +1,3 @@
-
 public class Enemy_AttackState : EnemyState
 {
     public Enemy_AttackState(Enemy enemy, StateMachine stateMachine, string animBoolName) : base(enemy, stateMachine, animBoolName)
@@ -17,8 +16,6 @@ public class Enemy_AttackState : EnemyState
     public override void Exit()
     {
         base.Exit();
-
-        enemy.SetVelocity(-enemy.anim.GetFloat("xMove") * enemy.backOffset.x, -enemy.anim.GetFloat("yMove") * enemy.backOffset.y);
     }
 
     public override void Update()

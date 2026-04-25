@@ -22,9 +22,10 @@ public class Enemy : Entity
 
     [Header("Chase Info")]
     public float chaseSpeed = 8f;
+    public float chaseStopDistance = 1.5f;
 
     [Header("Attack Info")]
-    public Vector2 backOffset = new(0.5f, 0.5f);
+    public Vector2 backOffset = new(10f, 10f);
     public float attackDistanceToPlayer = 1f;
 
     public Vector2 facingDirection { get; private set; }

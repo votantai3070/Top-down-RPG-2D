@@ -25,7 +25,7 @@ public class Entity_Combat : MonoBehaviour
 
     public virtual void Attack(Entity dealer)
     {
-        if (!CanAttack()) return;
+        if (!CanAttack()) return; // Guard against attacking too frequently
 
         lastAttackTime = Time.time;
 

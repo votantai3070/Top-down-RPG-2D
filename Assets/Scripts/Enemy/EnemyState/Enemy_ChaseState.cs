@@ -28,9 +28,20 @@ public class Enemy_ChaseState : Enemy_GroundState
             stateMachine.ChangeState(enemy.moveState);
 
         Vector2 dir = (enemy.player.position - enemy.transform.position).normalized;
-        enemy.SetVelocity(dir.x * enemy.chaseSpeed, dir.y * enemy.chaseSpeed);
 
-        if (enemy.IsPlayerInAttackRange())
-            stateMachine.ChangeState(enemy.attackState);
+        if (enemy.combat.CanAttack() == false)
+        {
+            if (Vector2.Distance(enemy.transform.position, enemy.player.position) <= enemy.chaseStopDistance)
+                enemy.SetVelocity(0f, 0f);
+            else
+                enemy.SetVelocity(dir.x * enemy.chaseSpeed, dir.y * enemy.chaseSpeed);
+        }
+
+        else if (enemy.combat.CanAttack())
+        {
+            enemy.SetVelocity(dir.x * enemy.chaseSpeed, dir.y * enemy.chaseSpeed);
+            if (enemy.IsPlayerInAttackRange())
+                stateMachine.ChangeState(enemy.attackState);
+        }
     }
 }
