@@ -65,6 +65,7 @@
     <Compile Include="Assets\Scripts\Entity\Entity_Health.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerState\PlayerState.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerState\Player_GroundState.cs" />
+    <Compile Include="Assets\Scripts\SpawnSystem\SpawnSystem.cs" />
     <Compile Include="Assets\Scripts\StateMachine.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyState\EnemyState.cs" />
     <Compile Include="Assets\Scripts\ControlManager\PlayerControls.cs" />
