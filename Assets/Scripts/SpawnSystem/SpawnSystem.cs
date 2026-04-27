@@ -62,13 +62,13 @@ public class SpawnSystem : MonoBehaviour
     // Remove null entries and check if we can spawn more enemies
     private void TrySpawnEnemy()
     {
-        aliveEnemies.RemoveAll(e => e == null);
+        aliveEnemies.RemoveAll(e => e == null || !e.activeSelf);
 
         if (aliveEnemies.Count >= maxEnemiesAlive) return;
 
         Vector2 spawnPos = GetRandomPointInBounds();
         GameObject prefab = enemyPrefabs[Random.Range(0, enemyPrefabs.Length)];
-        GameObject enemy = Instantiate(prefab, spawnPos, Quaternion.identity);
+        GameObject enemy = ObjectPool.instance.Spawn(prefab.name, spawnPos, Quaternion.identity);
 
         aliveEnemies.Add(enemy);
     }

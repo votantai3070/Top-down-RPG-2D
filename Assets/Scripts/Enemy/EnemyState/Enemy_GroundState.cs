@@ -8,7 +8,7 @@ public class Enemy_GroundState : EnemyState
     {
         base.Update();
 
-        if (enemy.combat.CanSeePlayer())
+        if (enemy.combat.CanSeePlayer() && stateTimer < 0)
             stateMachine.ChangeState(enemy.chaseState);
     }
 }

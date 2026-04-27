@@ -245,8 +245,8 @@ GameObject:
   - component: {fileID: 1151746334536653916}
   - component: {fileID: 4290939646103787818}
   - component: {fileID: 9158982008630937247}
-  - component: {fileID: 1163854869969890737}
   - component: {fileID: 6411094133754084699}
+  - component: {fileID: 1401499105440479791}
   m_Layer: 6
   m_Name: Enemy_Slime
   m_TagString: Untagged
@@ -347,7 +347,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f86a4fadb51b6c4ca920b1083ac10eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
-  moveSpeed: 5
+  moveSpeed: 4
   attackSpeed: 1
   attackRange: 2
   attackRadius: 1
@@ -363,24 +363,11 @@ MonoBehaviour:
   - {fileID: 7451999495896855518}
   - {fileID: 3126290348567857843}
   detectionRadius: 100
-  detectionAngle: 90
-  chaseSpeed: 7
+  detectionAngle: 360
+  chaseSpeed: 4
   chaseStopDistance: 1.5
   backOffset: {x: 10, y: 10}
   attackDistanceToPlayer: 0.2
---- !u!114 &1163854869969890737
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3547200286111319526}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cae0edadd9d986c43bcbe860bb3cfb43, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Entity_Health
-  health: 100
 --- !u!114 &6411094133754084699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -399,6 +386,19 @@ MonoBehaviour:
     m_Bits: 128
   showTargetEnemies: []
   attackCooldownGuard: 2
+--- !u!114 &1401499105440479791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3547200286111319526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 043c92e21246e034c9e60f5ae050329a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Enemy_Health
+  health: 100
 --- !u!1 &8446320465977628387
 GameObject:
   m_ObjectHideFlags: 0

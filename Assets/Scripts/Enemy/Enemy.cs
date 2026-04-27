@@ -4,11 +4,13 @@ public class Enemy : Entity
 {
     public Transform player { get; private set; }
     public Enemy_Combat combat { get; private set; }
+    public Enemy_Health health { get; private set; }
 
     public Enemy_IdleState idleState { get; private set; }
     public Enemy_MoveState moveState { get; private set; }
     public Enemy_ChaseState chaseState { get; private set; }
     public Enemy_AttackState attackState { get; private set; }
+    public Enemy_DeadState deadState { get; private set; }
 
     [SerializeField] private Transform[] patrolPoints;
     private Vector3[] patrolPointsPosition;
@@ -35,11 +37,13 @@ public class Enemy : Entity
         base.Awake();
 
         combat = GetComponent<Enemy_Combat>();
+        health = GetComponent<Enemy_Health>();
 
         idleState = new(this, stateMachine, "Idle");
         moveState = new(this, stateMachine, "Move");
         chaseState = new(this, stateMachine, "Chase");
         attackState = new(this, stateMachine, "Attack");
+        deadState = new(this, stateMachine, "Dead");
     }
 
     protected override void Start()
@@ -58,6 +62,21 @@ public class Enemy : Entity
         Vector2 input = new(anim.GetFloat("xMove"), anim.GetFloat("yMove"));
         if (input != Vector2.zero)
             facingDirection = input.normalized;
+    }
+
+    public void TryToIdleState()
+    {
+        if (stateMachine.currentState == idleState)
+            return;
+
+        stateMachine.ChangeState(idleState);
+    }
+
+    public void TryToDieState()
+    {
+        if (stateMachine.currentState == deadState)
+            return;
+        stateMachine.ChangeState(deadState);
     }
 
     public void SetPlayer(Transform player)

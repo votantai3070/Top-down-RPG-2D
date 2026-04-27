@@ -25,7 +25,7 @@ public class Enemy_IdleState : Enemy_GroundState
     {
         base.Update();
 
-        if (stateTimer < 0)
-            stateMachine.ChangeState(enemy.moveState);
+        //if (stateTimer < 0)
+        //    stateMachine.ChangeState(enemy.moveState);
     }
 }

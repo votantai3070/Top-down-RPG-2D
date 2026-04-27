@@ -69,13 +69,16 @@
     <Compile Include="Assets\Scripts\StateMachine.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyState\EnemyState.cs" />
     <Compile Include="Assets\Scripts\ControlManager\PlayerControls.cs" />
+    <Compile Include="Assets\Scripts\Enemy\EnemyState\Enemy_DeadState.cs" />
     <Compile Include="Assets\Scripts\Entity\EntityAnimationEvents.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyState\Enemy_GroundState.cs" />
     <Compile Include="Assets\Scripts\EntityState.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyState\Enemy_MoveState.cs" />
     <Compile Include="Assets\Scripts\Interface\IDamageable.cs" />
+    <Compile Include="Assets\Scripts\ObjectPool.cs" />
     <Compile Include="Assets\Scripts\Entity\Entity_Combat.cs" />
     <Compile Include="Assets\Scripts\Enemy\Enemy.cs" />
+    <Compile Include="Assets\Scripts\Enemy\Enemy_Health.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerState\Player_MoveState.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyState\Enemy_AttackState.cs" />
     <Compile Include="Assets\Scripts\Player\Player_AnimationEvents.cs" />
@@ -84,6 +87,7 @@
     <Compile Include="Assets\Scripts\Player\PlayerState\Player_SprintState.cs" />
     <Compile Include="Assets\Scripts\Entity\Entity.cs" />
     <Compile Include="Assets\Scripts\Player\Player.cs" />
+    <Compile Include="Assets\Scripts\Player\Player_Health.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerState\Player_DashState.cs" />
     <Compile Include="Assets\Scripts\Player\Player_Combat.cs" />
     <Compile Include="Assets\Scripts\Enemy\Enemy_Combat.cs" />

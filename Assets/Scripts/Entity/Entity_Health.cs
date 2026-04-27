@@ -4,22 +4,41 @@ public class Entity_Health : MonoBehaviour, IDamageable
 {
     private Entity entity;
     public int health;
+    protected int maxHealth = 100;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         entity = GetComponent<Entity>();
     }
 
-    public bool TakeDamage(float damage, Transform damagedDealer)
+    private void Update()
     {
+    }
+
+    public virtual bool TakeDamage(float damage, Transform damagedDealer)
+    {
+        if (health <= 0)
+            return false;
+
         TakeKnockback(damagedDealer, damage);
         health -= (int)damage;
+
+        UnBloody();
 
         return true;
     }
 
+    protected virtual void UnBloody()
+    {
 
-    private void TakeKnockback(Transform damagedDealer, float finalDamage)
+    }
+
+    public virtual void Die()
+    {
+        ObjectPool.instance.Despawn(gameObject);
+    }
+
+    protected virtual void TakeKnockback(Transform damagedDealer, float finalDamage)
     {
         //float averangeDamage = finalDamage / entityStats.GetMaxHealth();
         float averangeDamage = finalDamage / 100f;
