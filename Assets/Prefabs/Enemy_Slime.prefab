@@ -111,7 +111,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -1690453453
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 368543389579951487, guid: b029f9947fa3a274c918131d2c5278ed, type: 3}
@@ -247,6 +247,7 @@ GameObject:
   - component: {fileID: 9158982008630937247}
   - component: {fileID: 6411094133754084699}
   - component: {fileID: 1401499105440479791}
+  - component: {fileID: 4685216884774553067}
   m_Layer: 6
   m_Name: Enemy_Slime
   m_TagString: Untagged
@@ -399,6 +400,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy_Health
   health: 100
+--- !u!114 &4685216884774553067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3547200286111319526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9458fe9d6c7dfa94784dfc37075903d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DropSystem
+  dropPrefabs:
+  - {fileID: 2304869432924025883, guid: 400abfd31abe9e64590bdc316d855097, type: 3}
 --- !u!1 &8446320465977628387
 GameObject:
   m_ObjectHideFlags: 0
