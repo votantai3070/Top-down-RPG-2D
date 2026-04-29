@@ -12,6 +12,9 @@ public class SkillObject_Soul : SkillObject_Base
         if (target == null)
             return;
 
+        Debug.Log("Target: " + target);
+        Debug.Log("Speed: " + speed);
+
         transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
     }
 
@@ -24,9 +27,11 @@ public class SkillObject_Soul : SkillObject_Base
     public void SetupSoul(Skill_AbsorbSoul absorbSoul, bool canMove, float soulSpeed, Transform target)
     {
         absorbSoulManager = absorbSoul;
+        checkEnemyRadius = absorbSoul.checkEnemyRadius;
 
         if (canMove)
             MoveTowardsClosestTarget(soulSpeed, target);
+
     }
 
     public void AbsorbSoul()

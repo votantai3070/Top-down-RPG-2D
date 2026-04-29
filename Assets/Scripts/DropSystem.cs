@@ -29,7 +29,7 @@ public class DropSystem : MonoBehaviour
 
             bool canMove =
                 Vector2.Distance(soul.transform.position, player.transform.position)
-                < player.skillManager.absorbSoulManager.distanceToAbsorb;
+                < player.skillManager.absorbSoulManager.checkEnemyRadius;
 
             soul.SetupSoul(player.skillManager.absorbSoulManager, canMove, player.skillManager.absorbSoulManager.speedOfSoul, enemy.player);
         }
