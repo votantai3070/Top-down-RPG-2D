@@ -1,17 +1,25 @@
-public class StateMachine
+public class StateMachine<T> where T : class, IState
 {
-    public EntityState currentState { get; private set; }
+    public T currentState { get; private set; }
 
-    public void InitializeState(EntityState startState)
+    public void Initialize(T startState)
     {
         currentState = startState;
-        currentState.Enter();
+        (currentState as IState)?.Enter();
     }
 
-    public void ChangeState(EntityState newState)
+    public void ChangeState(T newState)
     {
-        currentState.Exit();
+        (currentState as IState)?.Exit();
         currentState = newState;
-        currentState.Enter();
+        (currentState as IState)?.Enter();
     }
+}
+
+// Interface
+public interface IState
+{
+    void Enter();
+    void Update();
+    void Exit();
 }

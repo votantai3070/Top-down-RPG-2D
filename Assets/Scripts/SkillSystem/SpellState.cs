@@ -1,17 +1,16 @@
 using UnityEngine;
 
-public class EntityState
+public class SpellState : IState
 {
-    protected StateMachine stateMachine;
+    protected StateMachine<SpellState> stateMachine;
     protected string animBoolName;
 
-    protected Entity entity;
     protected Rigidbody2D rb;
     protected Animator anim;
 
     protected float stateTimer;
 
-    public EntityState(StateMachine stateMachine, string animBoolName)
+    public SpellState(StateMachine<SpellState> stateMachine, string animBoolName)
     {
         this.stateMachine = stateMachine;
         this.animBoolName = animBoolName;

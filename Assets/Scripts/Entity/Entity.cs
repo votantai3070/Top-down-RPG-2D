@@ -4,7 +4,7 @@ using UnityEngine;
 public class Entity : MonoBehaviour
 {
     public Entity_Combat entityCombat { get; private set; }
-    public StateMachine stateMachine { get; private set; }
+    public StateMachine<EntityState> stateMachine { get; private set; }
     public Rigidbody2D rb { get; private set; }
     public Animator anim { get; private set; }
 
@@ -30,7 +30,7 @@ public class Entity : MonoBehaviour
 
     protected virtual void Awake()
     {
-        stateMachine = new StateMachine();
+        stateMachine = new();
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponentInChildren<Animator>();
 
@@ -46,7 +46,7 @@ public class Entity : MonoBehaviour
 
     protected virtual void Update()
     {
-        stateMachine.currentState.Update();
+        stateMachine.currentState?.Update();
     }
 
     public void SetVelocity(float x, float y)

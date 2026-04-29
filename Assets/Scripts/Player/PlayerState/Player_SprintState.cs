@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Player_SprintState : Player_GroundState
 {
-    public Player_SprintState(Player player, StateMachine stateMachine, string animBoolName) : base(player, stateMachine, animBoolName)
+    public Player_SprintState(Player player, StateMachine<EntityState> stateMachine, string animBoolName) : base(player, stateMachine, animBoolName)
     {
     }
 

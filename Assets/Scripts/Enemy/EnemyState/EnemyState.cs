@@ -2,7 +2,7 @@ public class EnemyState : EntityState
 {
     protected Enemy enemy;
 
-    public EnemyState(Enemy enemy, StateMachine stateMachine, string animBoolName) : base(stateMachine, animBoolName)
+    public EnemyState(Enemy enemy, StateMachine<EntityState> stateMachine, string animBoolName) : base(stateMachine, animBoolName)
     {
         this.enemy = enemy;
 

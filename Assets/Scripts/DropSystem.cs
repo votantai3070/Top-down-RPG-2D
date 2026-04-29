@@ -27,11 +27,14 @@ public class DropSystem : MonoBehaviour
                 return;
             }
 
+
+            Skill_AbsorbSoul absorbSoul = player.skillManager.GetSkillByType(SkillType.AbsorbSoul).GetComponent<Skill_AbsorbSoul>();
+
             bool canMove =
                 Vector2.Distance(soul.transform.position, player.transform.position)
-                < player.skillManager.absorbSoulManager.checkEnemyRadius;
+                < absorbSoul.checkEnemyRadius;
 
-            soul.SetupSoul(player.skillManager.absorbSoulManager, canMove, player.skillManager.absorbSoulManager.speedOfSoul, enemy.player);
+            soul.SetupSoul(player.skillManager.absorbSoul, canMove, player.skillManager.absorbSoul.speedOfSoul, enemy.player);
         }
     }
 }

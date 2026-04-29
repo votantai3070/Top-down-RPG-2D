@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Enemy_DeadState : EnemyState
 {
-    public Enemy_DeadState(Enemy enemy, StateMachine stateMachine, string animBoolName) : base(enemy, stateMachine, animBoolName)
+    public Enemy_DeadState(Enemy enemy, StateMachine<EntityState> stateMachine, string animBoolName) : base(enemy, stateMachine, animBoolName)
     {
     }
 

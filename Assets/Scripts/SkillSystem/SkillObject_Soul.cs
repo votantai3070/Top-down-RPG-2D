@@ -7,7 +7,7 @@ public class SkillObject_Soul : SkillObject_Base
     private float speed;
 
 
-    private void Update()
+    protected override void Update()
     {
         if (target == null)
             return;
@@ -20,7 +20,7 @@ public class SkillObject_Soul : SkillObject_Base
 
     public void MoveTowardsClosestTarget(float speed, Transform newTarget = null)
     {
-        target = newTarget == null ? FindClosestTarget() : newTarget;
+        target = newTarget == null ? absorbSoulManager.FindClosestTarget() : newTarget;
         this.speed = speed;
     }
 

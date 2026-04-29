@@ -633,6 +633,9 @@ MonoBehaviour:
   - tag: Soul
     prefab: {fileID: 2304869432924025883, guid: 400abfd31abe9e64590bdc316d855097, type: 3}
     initialSize: 3
+  - tag: FireSoul
+    prefab: {fileID: 1168510075856658422, guid: 2c4d90c89e9a6a0478f0bc2f0c8721d2, type: 3}
+    initialSize: 3
 --- !u!4 &597912176
 Transform:
   m_ObjectHideFlags: 0
@@ -730,7 +733,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 00000000935840b0e15264e733ba3d9ba9f65dfeb1ee48fa71c63b79
+  m_ApplyToSortingLayers: 00000000935840b0e15264e733ba3d9ba9f65dfeb1ee48fa71c63b79536e70d4
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -914,6 +917,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1261357900}
   - component: {fileID: 1261357901}
+  - component: {fileID: 1261357902}
   m_Layer: 7
   m_Name: Skill
   m_TagString: Untagged
@@ -948,11 +952,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f4b78fea6e8d0843a4ef4541d2a56af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Skill_AbsorbSoul
+  whatIsEnemy:
+    serializedVersion: 2
+    m_Bits: 128
+  checkEnemyRadius: 4
+  target: {fileID: 0}
+  targetCheck: {fileID: 1261357900}
   skillType: 0
   upgradeType: 1
   cooldown: 0
   distanceToAbsorb: 1
   speedOfSoul: 5
+--- !u!114 &1261357902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1261357899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d787127059b4c0449054e8666d484b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Skill_FireSoul
+  whatIsEnemy:
+    serializedVersion: 2
+    m_Bits: 64
+  checkEnemyRadius: 8
+  target: {fileID: 0}
+  targetCheck: {fileID: 1261357900}
+  skillType: 5
+  upgradeType: 11
+  cooldown: 3
+  speed: 5
+  attackDistance: 4
 --- !u!1 &1369479939
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,6 +1,6 @@
 public class Enemy_AttackState : EnemyState
 {
-    public Enemy_AttackState(Enemy enemy, StateMachine stateMachine, string animBoolName) : base(enemy, stateMachine, animBoolName)
+    public Enemy_AttackState(Enemy enemy, StateMachine<EntityState> stateMachine, string animBoolName) : base(enemy, stateMachine, animBoolName)
     {
     }
 

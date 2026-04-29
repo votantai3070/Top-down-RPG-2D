@@ -6,6 +6,12 @@ public class Skill_Base : MonoBehaviour
     public Player_SkillManager skillManager { get; private set; }
     public Player player { get; private set; }
 
+    [Space]
+    public LayerMask whatIsEnemy;
+    public float checkEnemyRadius;
+    public Transform target;
+    [SerializeField] protected Transform targetCheck;
+
     [Header("General details")]
     [SerializeField] protected SkillType skillType;
     [SerializeField] protected SkillUpgradeType upgradeType;
@@ -43,6 +49,12 @@ public class Skill_Base : MonoBehaviour
             return false;
         }
 
+        if (target == null)
+        {
+            Debug.Log("No Target");
+            return false;
+        }
+
         if (OnCooldown())
         {
             Debug.Log("On Cooldown");
@@ -67,5 +79,38 @@ public class Skill_Base : MonoBehaviour
     {
         //player.ui.ingameUI.GetSkillSlot(skillType).ResetCooldown();
         lastTimeUsed = Time.time - cooldown;
+    }
+
+    public Transform FindClosestTarget()
+    {
+        Transform closestTarget = null;
+        float closestDistance = Mathf.Infinity;
+
+        foreach (var target in GetEnemyAround(transform, checkEnemyRadius))
+        {
+            float distance = Vector2.Distance(transform.position, target.transform.position);
+
+            if (distance < closestDistance)
+            {
+                closestTarget = target.transform;
+                closestDistance = distance;
+            }
+        }
+
+        return closestTarget;
+    }
+
+    protected Collider2D[] GetEnemyAround(Transform t, float radius)
+    {
+        return Physics2D.OverlapCircleAll(t.position, radius, whatIsEnemy);
+    }
+
+    protected virtual void OnDrawGizmos()
+    {
+        if (targetCheck == null)
+            targetCheck = transform;
+
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(targetCheck.position, checkEnemyRadius);
     }
 }

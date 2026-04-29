@@ -2,14 +2,16 @@ using UnityEngine;
 
 public class SkillObject_Base : MonoBehaviour
 {
+    public StateMachine<SpellState> stateMachine { get; private set; }
+
     [SerializeField] protected LayerMask whatIsEnemy;
     [SerializeField] protected Transform targetCheck;
     [SerializeField] protected float checkDamageRadius = 1;
     [SerializeField] protected float checkEnemyRadius = 3;
     //[SerializeField] private float defaultDuration = 2f;
 
-    protected Rigidbody2D rb;
-    protected Animator anim;
+    public Rigidbody2D rb { get; private set; }
+    public Animator anim { get; private set; }
     protected Entity entity;
     protected Player player;
     //protected Entity_Stats playerStats;
@@ -22,6 +24,19 @@ public class SkillObject_Base : MonoBehaviour
     {
         anim = GetComponentInChildren<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        stateMachine = new();
+
+        rb.gravityScale = 0;
+    }
+
+    protected virtual void Start()
+    {
+
+    }
+
+    protected virtual void Update()
+    {
+        stateMachine.currentState.Update();
     }
 
     protected void DamageEnemiesInRadius(Transform t, float radius)
@@ -55,25 +70,6 @@ public class SkillObject_Base : MonoBehaviour
 
             //currentElement = element;
         }
-    }
-
-    protected Transform FindClosestTarget()
-    {
-        Transform closestTarget = null;
-        float closestDistance = Mathf.Infinity;
-
-        foreach (var target in GetEnemyAround(transform, checkEnemyRadius))
-        {
-            float distance = Vector2.Distance(transform.position, target.transform.position);
-
-            if (distance < closestDistance)
-            {
-                closestTarget = target.transform;
-                closestDistance = distance;
-            }
-        }
-
-        return closestTarget;
     }
 
     protected Collider2D[] GetEnemyAround(Transform t, float radius)

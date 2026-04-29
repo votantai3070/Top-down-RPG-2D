@@ -2,7 +2,7 @@
 
 public class Player_GroundState : PlayerState
 {
-    public Player_GroundState(Player player, StateMachine stateMachine, string animBoolName) : base(player, stateMachine, animBoolName)
+    public Player_GroundState(Player player, StateMachine<EntityState> stateMachine, string animBoolName) : base(player, stateMachine, animBoolName)
     {
     }
 

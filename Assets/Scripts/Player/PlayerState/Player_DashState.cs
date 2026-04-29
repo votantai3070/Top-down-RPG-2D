@@ -1,6 +1,6 @@
 public class Player_DashState : Player_GroundState
 {
-    public Player_DashState(Player player, StateMachine stateMachine, string animBoolName) : base(player, stateMachine, animBoolName)
+    public Player_DashState(Player player, StateMachine<EntityState> stateMachine, string animBoolName) : base(player, stateMachine, animBoolName)
     {
     }
 

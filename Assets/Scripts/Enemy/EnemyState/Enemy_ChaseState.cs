@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Enemy_ChaseState : Enemy_GroundState
 {
-    public Enemy_ChaseState(Enemy enemy, StateMachine stateMachine, string animBoolName) : base(enemy, stateMachine, animBoolName)
+    public Enemy_ChaseState(Enemy enemy, StateMachine<EntityState> stateMachine, string animBoolName) : base(enemy, stateMachine, animBoolName)
     {
     }
 

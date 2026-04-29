@@ -44,7 +44,7 @@ public class Player : Entity
     protected override void Start()
     {
         base.Start();
-        stateMachine.InitializeState(idleState);
+        stateMachine.Initialize(idleState);
     }
 
     protected override void Update()

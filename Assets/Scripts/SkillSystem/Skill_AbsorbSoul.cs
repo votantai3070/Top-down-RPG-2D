@@ -5,7 +5,6 @@ public class Skill_AbsorbSoul : Skill_Base
     [Header("Absorb Soul Settings")]
     public float distanceToAbsorb = .5f;
     public float speedOfSoul = 5f;
-    public float checkEnemyRadius = 3f;
 
     protected override void Awake()
     {

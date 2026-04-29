@@ -50,7 +50,7 @@ public class Enemy : Entity
     {
         InitializePatrolPoints();
 
-        stateMachine.InitializeState(idleState);
+        stateMachine.Initialize(idleState);
 
         facingDirection = Vector2.down;
     }

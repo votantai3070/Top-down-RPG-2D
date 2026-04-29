@@ -6,7 +6,7 @@ public class Enemy_MoveState : Enemy_GroundState
     private float arriveDistance = 0.3f;
     private Vector3 destination;
 
-    public Enemy_MoveState(Enemy enemy, StateMachine stateMachine, string animBoolName) : base(enemy, stateMachine, animBoolName)
+    public Enemy_MoveState(Enemy enemy, StateMachine<EntityState> stateMachine, string animBoolName) : base(enemy, stateMachine, animBoolName)
     {
     }
 
