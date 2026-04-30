@@ -70,12 +70,12 @@
     <Compile Include="Assets\Scripts\SkillSystem\FireSoulState\FireSoul_State.cs" />
     <Compile Include="Assets\Scripts\SpawnSystem\SpawnSystem.cs" />
     <Compile Include="Assets\Scripts\StateMachine.cs" />
+    <Compile Include="Assets\Scripts\SkillSystem\FireSoulState\FireSoul_ExplodeState.cs" />
     <Compile Include="Assets\Scripts\SkillSystem\Skill_FireSoul.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyState\EnemyState.cs" />
     <Compile Include="Assets\Scripts\ControlManager\PlayerControls.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyState\Enemy_DeadState.cs" />
     <Compile Include="Assets\Scripts\Entity\EntityAnimationEvents.cs" />
-    <Compile Include="Assets\Scripts\SkillSystem\FireSoulState\FireSoul_Explode.cs" />
     <Compile Include="Assets\Scripts\SkillSystem\SkillObject_FireSoul.cs" />
     <Compile Include="Assets\Scripts\SkillSystem\SpellState.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyState\Enemy_GroundState.cs" />
@@ -106,8 +106,8 @@
     <Compile Include="Assets\Scripts\SkillSystem\FireSoulState\FireSould_ShootAntecipationState.cs" />
     <Compile Include="Assets\Scripts\SkillSystem\FireSoulState\FireSoul_CreateState.cs" />
     <Compile Include="Assets\Scripts\Player\Player_Combat.cs" />
-    <Compile Include="Assets\Scripts\SkillSystem\FireSoulState\FireSoul_Shot.cs" />
     <Compile Include="Assets\Scripts\Enemy\Enemy_Combat.cs" />
+    <Compile Include="Assets\Scripts\SkillSystem\FireSoulState\FireSoul_ShotState.cs" />
     <Compile Include="Assets\Scripts\ControlManager\ControlsManager.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerState\Player_IdleState.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyState\Enemy_ChaseState.cs" />

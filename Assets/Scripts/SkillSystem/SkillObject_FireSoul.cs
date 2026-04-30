@@ -5,7 +5,8 @@ public class SkillObject_FireSoul : SkillObject_Base
     public FireSoul_CreateState createState { get; private set; }
     public FireSoul_IdleState idleState { get; private set; }
     public FireSould_ShootAntecipationState shootAntecipationState { get; private set; }
-    public FireSoul_Shot shotState { get; private set; }
+    public FireSoul_ShotState shotState { get; private set; }
+    public FireSoul_ExplodeState explodeState { get; private set; }
 
     [Header("Fire Soul Settings")]
     public float speed { get; private set; }
@@ -20,6 +21,7 @@ public class SkillObject_FireSoul : SkillObject_Base
         idleState = new(this, stateMachine, "Idle");
         shootAntecipationState = new(this, stateMachine, "ShootAntecipation");
         shotState = new(this, stateMachine, "Shot");
+        explodeState = new(this, stateMachine, "Explode");
     }
 
     protected override void Start()
@@ -44,7 +46,6 @@ public class SkillObject_FireSoul : SkillObject_Base
         Debug.Log("collision: " + collision.tag);
 
         DamageEnemiesInRadius(transform, collision.tag, 10, fireSoulManager.player.transform);
-        OnHit();
     }
 
     public void OnHit()
@@ -52,5 +53,7 @@ public class SkillObject_FireSoul : SkillObject_Base
         stateMachine.ChangeState(createState);
         target = null;
         ObjectPool.instance.Despawn(gameObject);
+
+        SetPhysicsActive(false);
     }
 }

@@ -9,6 +9,8 @@ public class FireSoul_CreateState : FireSoul_State
         base.Enter();
 
         stateTimer = anim.GetCurrentAnimatorStateInfo(0).length;
+
+
     }
 
     public override void Exit()

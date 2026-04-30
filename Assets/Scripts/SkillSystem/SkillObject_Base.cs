@@ -8,11 +8,16 @@ public class SkillObject_Base : MonoBehaviour
     [SerializeField] protected Transform targetCheck;
     [SerializeField] protected float checkEnemyRadius = 3;
     public float checkDamageRadius = 3;
-
     //[SerializeField] private float defaultDuration = 2f;
+
+    [Header("Attack Settings")]
+    private float lastAttackTime = -999f;
+    [SerializeField] private float attackCooldownGuard = 0.1f; // 100ms
 
     public Rigidbody2D rb { get; private set; }
     public Animator anim { get; private set; }
+    public Collider2D col { get; private set; }
+
     protected Entity entity;
     protected Player player;
     //protected Entity_Stats playerStats;
@@ -23,6 +28,7 @@ public class SkillObject_Base : MonoBehaviour
 
     protected virtual void Awake()
     {
+        col = GetComponent<Collider2D>();
         anim = GetComponentInChildren<Animator>();
         rb = GetComponent<Rigidbody2D>();
         stateMachine = new();
@@ -42,6 +48,10 @@ public class SkillObject_Base : MonoBehaviour
 
     protected void DamageEnemiesInRadius(Transform t, string targetStr, int damage, Transform damageDealer)
     {
+        if (!CanAttack()) return; // Guard against attacking too frequently
+
+        lastAttackTime = Time.time;
+
         foreach (var target in GetEnemyAround(t, checkDamageRadius))
         {
             //if (!target.CompareTag(targetStr))
@@ -67,6 +77,7 @@ public class SkillObject_Base : MonoBehaviour
             if (targetGoHit)
             {
                 Debug.Log("Gay dmg");
+                SetPhysicsActive(false);
                 //lastTarget = target.transform;
                 //target.GetComponent<Entity>().ElementalVfx(defaultDuration, element);
                 //player?.playerVfx.GetImapctVfx(target.transform, attackData.isCrit);
@@ -79,6 +90,17 @@ public class SkillObject_Base : MonoBehaviour
     protected Collider2D[] GetEnemyAround(Transform t, float radius)
     {
         return Physics2D.OverlapCircleAll(t.position, radius, whatIsEnemy);
+    }
+
+    public bool CanAttack()
+    {
+        return Time.time >= lastAttackTime + attackCooldownGuard;
+    }
+
+    public void SetPhysicsActive(bool active)
+    {
+        col.enabled = active;
+        rb.simulated = active;
     }
 
     protected virtual void OnDrawGizmos()

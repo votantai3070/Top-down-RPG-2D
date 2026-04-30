@@ -985,8 +985,8 @@ MonoBehaviour:
   upgradeType: 11
   cooldown: 3
   speed: 5
-  checkEnemyRadius: 10.58
-  checkDamageRadius: 2
+  checkEnemyRadius: 10
+  checkDamageRadius: 3
 --- !u!1 &1369479939
 GameObject:
   m_ObjectHideFlags: 0
@@ -1317,63 +1317,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d572cdefc1c82d46a556d17e1bb7ff9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player_AnimationEvents
---- !u!1001 &1843364268
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1168510075856658422, guid: 2c4d90c89e9a6a0478f0bc2f0c8721d2, type: 3}
-      propertyPath: m_Name
-      value: FireSoul
-      objectReference: {fileID: 0}
-    - target: {fileID: 1374786472206361792, guid: 2c4d90c89e9a6a0478f0bc2f0c8721d2, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.49942
-      objectReference: {fileID: 0}
-    - target: {fileID: 1374786472206361792, guid: 2c4d90c89e9a6a0478f0bc2f0c8721d2, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2.17135
-      objectReference: {fileID: 0}
-    - target: {fileID: 1374786472206361792, guid: 2c4d90c89e9a6a0478f0bc2f0c8721d2, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1374786472206361792, guid: 2c4d90c89e9a6a0478f0bc2f0c8721d2, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1374786472206361792, guid: 2c4d90c89e9a6a0478f0bc2f0c8721d2, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1374786472206361792, guid: 2c4d90c89e9a6a0478f0bc2f0c8721d2, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1374786472206361792, guid: 2c4d90c89e9a6a0478f0bc2f0c8721d2, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1374786472206361792, guid: 2c4d90c89e9a6a0478f0bc2f0c8721d2, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1374786472206361792, guid: 2c4d90c89e9a6a0478f0bc2f0c8721d2, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1374786472206361792, guid: 2c4d90c89e9a6a0478f0bc2f0c8721d2, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 2c4d90c89e9a6a0478f0bc2f0c8721d2, type: 3}
 --- !u!1 &1880149377
 GameObject:
   m_ObjectHideFlags: 0
@@ -8494,4 +8437,3 @@ SceneRoots:
   - {fileID: 597912176}
   - {fileID: 575607127}
   - {fileID: 606166522}
-  - {fileID: 1843364268}

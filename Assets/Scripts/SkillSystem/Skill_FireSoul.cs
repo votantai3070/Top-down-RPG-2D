@@ -15,17 +15,25 @@ public class Skill_FireSoul : Skill_Base
             return;
 
         if (Vector2.Distance(target.position, transform.position) < checkEnemyRadius)
+        {
             if (upgradeType == SkillUpgradeType.FireSoul)
             {
-                CreateFireSoul();
+                CreateFireSoul(Vector3.one * 3);
                 SetSkillOnCooldown();
             }
+            else if (upgradeType == SkillUpgradeType.FireSoulUpgrade)
+            {
+                CreateFireSoul(Vector3.one * 5);
+                SetSkillOnCooldown();
+            }
+        }
     }
 
     // Create fire soul
-    public void CreateFireSoul()
+    public void CreateFireSoul(Vector3 scale)
     {
         GameObject fireSoul = ObjectPool.instance.Spawn("FireSoul", transform.position, transform.rotation);
+        fireSoul.transform.localScale = scale;
         fireSoul.GetComponent<SkillObject_FireSoul>().SetupFireSoul(this);
     }
 

@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
-public class FireSoul_Shot : FireSoul_State
+public class FireSoul_ShotState : FireSoul_State
 {
-    public FireSoul_Shot(SkillObject_FireSoul spellSkill, StateMachine<SpellState> stateMachine, string animBoolName) : base(spellSkill, stateMachine, animBoolName)
+    public FireSoul_ShotState(SkillObject_FireSoul spellSkill, StateMachine<SpellState> stateMachine, string animBoolName) : base(spellSkill, stateMachine, animBoolName)
     {
     }
 
@@ -36,7 +36,8 @@ public class FireSoul_Shot : FireSoul_State
         );
 
         if (Vector2.Distance(spellSkill.transform.position, spellSkill.target.position) < .1f)
-            spellSkill.OnHit();
+            stateMachine.ChangeState(spellSkill.explodeState);
+
     }
 
     private void RotationToEnenmy()

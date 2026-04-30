@@ -52,7 +52,8 @@ MonoBehaviour:
     m_Bits: 64
   targetCheck: {fileID: 1374786472206361792}
   checkEnemyRadius: 3
-  checkDamageRadius: 1
+  checkDamageRadius: 3
+  attackCooldownGuard: 0.1
 --- !u!50 &837175262728270496
 Rigidbody2D:
   serializedVersion: 5
