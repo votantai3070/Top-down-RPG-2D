@@ -20,6 +20,9 @@ public class Skill_DataSO : ScriptableObject
     {
         public SkillUpgradeType upgradeType;
         public float cooldown;
+        public float distanceToAttack;
+        public float attackRadius;
+        public float speed;
         //public DamageScaleData damageScale;
     }
 }

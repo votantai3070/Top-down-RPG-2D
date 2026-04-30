@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class FireSoul_Shot : FireSoul_State
 {
@@ -22,11 +22,27 @@ public class FireSoul_Shot : FireSoul_State
         base.Update();
 
         if (spellSkill.target == null)
+        {
+            spellSkill.OnHit();
             return;
+        }
 
-        spellSkill.transform.position = Vector3.MoveTowards(spellSkill.transform.position, spellSkill.target.position, spellSkill.speed * Time.deltaTime);
+        RotationToEnenmy();
 
-        if (Vector2.Distance(spellSkill.transform.position, spellSkill.target.position) < .2f)
-            ObjectPool.instance.Despawn(spellSkill.gameObject);
+        spellSkill.transform.position = Vector3.MoveTowards(
+            spellSkill.transform.position,
+            spellSkill.target.position,
+            spellSkill.speed * Time.deltaTime
+        );
+
+        if (Vector2.Distance(spellSkill.transform.position, spellSkill.target.position) < .1f)
+            spellSkill.OnHit();
+    }
+
+    private void RotationToEnenmy()
+    {
+        Vector2 dir = (spellSkill.target.position - spellSkill.transform.position).normalized;
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        spellSkill.transform.rotation = Quaternion.Euler(0f, 0f, angle - 90f);
     }
 }

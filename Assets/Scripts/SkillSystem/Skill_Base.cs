@@ -8,7 +8,6 @@ public class Skill_Base : MonoBehaviour
 
     [Space]
     public LayerMask whatIsEnemy;
-    public float checkEnemyRadius;
     public Transform target;
     [SerializeField] protected Transform targetCheck;
 
@@ -16,6 +15,9 @@ public class Skill_Base : MonoBehaviour
     [SerializeField] protected SkillType skillType;
     [SerializeField] protected SkillUpgradeType upgradeType;
     [SerializeField] protected float cooldown;
+    public float speed;
+    public float checkEnemyRadius;
+    public float checkDamageRadius;
     private float lastTimeUsed;
 
     protected virtual void Awake()
@@ -35,6 +37,10 @@ public class Skill_Base : MonoBehaviour
         UpgradeData upgrade = skillData.upgradeData;
         upgradeType = upgrade.upgradeType;
         cooldown = upgrade.cooldown;
+        speed = upgrade.speed;
+        checkEnemyRadius = upgrade.distanceToAttack;
+        checkDamageRadius = upgrade.attackRadius;
+
         //damageScaleData = upgrade.damageScale;
 
         //player.ui.ingameUI.GetSkillSlot(skillType).SetupSkillSlot(skillData);

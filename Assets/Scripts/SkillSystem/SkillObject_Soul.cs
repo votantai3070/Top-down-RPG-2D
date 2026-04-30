@@ -12,9 +12,6 @@ public class SkillObject_Soul : SkillObject_Base
         if (target == null)
             return;
 
-        Debug.Log("Target: " + target);
-        Debug.Log("Speed: " + speed);
-
         transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
     }
 

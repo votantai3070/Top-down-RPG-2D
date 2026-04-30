@@ -32,5 +32,25 @@ public class SkillObject_FireSoul : SkillObject_Base
         this.fireSoulManager = fireSoulManager;
         speed = fireSoulManager.speed;
         target = fireSoulManager.target;
+        checkEnemyRadius = fireSoulManager.checkEnemyRadius;
+        checkDamageRadius = fireSoulManager.checkDamageRadius;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (!collision.CompareTag("Enemy"))
+            return;
+
+        Debug.Log("collision: " + collision.tag);
+
+        DamageEnemiesInRadius(transform, collision.tag, 10, fireSoulManager.player.transform);
+        OnHit();
+    }
+
+    public void OnHit()
+    {
+        stateMachine.ChangeState(createState);
+        target = null;
+        ObjectPool.instance.Despawn(gameObject);
     }
 }

@@ -6,8 +6,9 @@ public class SkillObject_Base : MonoBehaviour
 
     [SerializeField] protected LayerMask whatIsEnemy;
     [SerializeField] protected Transform targetCheck;
-    [SerializeField] protected float checkDamageRadius = 1;
     [SerializeField] protected float checkEnemyRadius = 3;
+    public float checkDamageRadius = 3;
+
     //[SerializeField] private float defaultDuration = 2f;
 
     public Rigidbody2D rb { get; private set; }
@@ -39,14 +40,16 @@ public class SkillObject_Base : MonoBehaviour
         stateMachine.currentState.Update();
     }
 
-    protected void DamageEnemiesInRadius(Transform t, float radius)
+    protected void DamageEnemiesInRadius(Transform t, string targetStr, int damage, Transform damageDealer)
     {
-        foreach (var target in GetEnemyAround(t, radius))
+        foreach (var target in GetEnemyAround(t, checkDamageRadius))
         {
-            if (!target.CompareTag("Enemy"))
-                continue;
+            //if (!target.CompareTag(targetStr))
+            //    continue;
 
             IDamageable damageable = target.GetComponent<IDamageable>();
+
+            Debug.Log("Damageable: " + damageable);
 
             if (damageable == null) continue;
 
@@ -56,17 +59,18 @@ public class SkillObject_Base : MonoBehaviour
             //int physicalDamage = (int)attackData.physicalDamage;
             //int elementalDamage = (int)attackData.elementalDamage;
 
-            //targetGoHit = damageable.TakeDamage(physicalDamage, elementalDamage, element, transform);
+            targetGoHit = damageable.TakeDamage(damage, damageDealer);
 
             //if (element != ElementType.None)
-            //    target.GetComponent<Entity_StatusHandler>().ApplyStatusEffect(element, attackData.effectData);
+            //target.GetComponent<Entity_StatusHandler>().ApplyStatusEffect(element, attackData.effectData);
 
-            //if (targetGoHit)
-            //{
-            //    lastTarget = target.transform;
-            //    target.GetComponent<Entity>().ElementalVfx(defaultDuration, element);
-            //    player?.playerVfx.GetImapctVfx(target.transform, attackData.isCrit);
-            //}
+            if (targetGoHit)
+            {
+                Debug.Log("Gay dmg");
+                //lastTarget = target.transform;
+                //target.GetComponent<Entity>().ElementalVfx(defaultDuration, element);
+                //player?.playerVfx.GetImapctVfx(target.transform, attackData.isCrit);
+            }
 
             //currentElement = element;
         }
@@ -82,6 +86,7 @@ public class SkillObject_Base : MonoBehaviour
         if (targetCheck == null)
             targetCheck = transform;
 
+        Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(targetCheck.position, checkDamageRadius);
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(targetCheck.position, checkEnemyRadius);
