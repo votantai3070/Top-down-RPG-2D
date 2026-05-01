@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Entity_Stats : MonoBehaviour
 {
@@ -85,9 +85,58 @@ public class Entity_Stats : MonoBehaviour
     {
         float baseMaxHealth = resource.maxHealth.GetValue();
         float bonusMaxHealth = major.vitality.GetValue() * 5; // Assuming each point of vitality gives 5 additional health
+
+        Debug.Log("Bonus Max Health: " + bonusMaxHealth);
         float finalMaxHealth = baseMaxHealth + bonusMaxHealth;
 
         return finalMaxHealth;
+    }
+
+    // ===================== SKILL DAMAGE =====================
+
+    /// <summary>
+    /// Tính damage cho skill với scaleFactor riêng mỗi skill
+    /// scaleFactor = 1.5 → damage bằng 150% base damage
+    /// Normal × (1 + upgradeBonus%)
+    /// </summary>
+    public float GetSkillDamage(SkillUpgradeType skillType, out bool isCriticalHit)
+    {
+        float scaleFactor = GetSkillScaleFactor(skillType);
+        return GetPhysicalDamage(out isCriticalHit, scaleFactor);
+    }
+
+    private float GetSkillScaleFactor(SkillUpgradeType skillType)
+    {
+        switch (skillType)
+        {
+            // ------ Skill Attack ------
+            case SkillUpgradeType.SpinningSlash: return 1.4f;
+            case SkillUpgradeType.SpinningSlashUpgrade: return 1.75f; // +25% damage
+
+            case SkillUpgradeType.FireSoul: return 1.5f;
+            case SkillUpgradeType.FireSoulUpgrade: return 1.95f; // +30% damage
+
+            case SkillUpgradeType.SoulCleave: return 1.3f;
+            case SkillUpgradeType.SoulCleaveUpgrade: return 1.56f; // +20% damage
+
+            case SkillUpgradeType.SpriritArrow: return 1.6f;
+            case SkillUpgradeType.SpriritArrowUpgrade: return 2.0f;  // +25% damage
+
+            case SkillUpgradeType.SoulBurst: return 1.8f;
+            case SkillUpgradeType.SoulBurstUpgrade: return 2.34f; // +30% damage
+
+            case SkillUpgradeType.DeathDash: return 1.2f;
+            case SkillUpgradeType.DeathDashUpgrade: return 1.44f; // +20% damage
+
+            // ------ Ultimate ------
+            case SkillUpgradeType.BlackHole: return 2.5f;
+            case SkillUpgradeType.BlackHoleUpgrade: return 3.25f; // +30% DoT
+
+            case SkillUpgradeType.SoulEruption: return 3.0f;
+            case SkillUpgradeType.SoulEruptionUpgrade: return 4.05f; // +35% damage
+
+            default: return 1.0f;
+        }
     }
 
     public Stat GetStatByType(StatType type)

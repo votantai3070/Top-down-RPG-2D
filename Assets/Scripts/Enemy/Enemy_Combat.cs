@@ -4,8 +4,9 @@ public class Enemy_Combat : Entity_Combat
 {
     private Enemy enemy;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         enemy = GetComponent<Enemy>();
 
         showTargetEnemies = FindAttackTarget(attackArea);

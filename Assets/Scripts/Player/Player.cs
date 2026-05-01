@@ -5,6 +5,7 @@ public class Player : Entity
     public ControlsManager controls { get; private set; }
     public Player_Combat combat { get; private set; }
     public Player_SkillManager skillManager { get; private set; }
+    public Player_Health health { get; private set; }
 
     public Player_IdleState idleState { get; private set; }
     public Player_MoveState moveState { get; private set; }
@@ -29,9 +30,14 @@ public class Player : Entity
     protected override void Awake()
     {
         base.Awake();
+
         controls = ControlsManager.instance;
         combat = GetComponent<Player_Combat>();
         skillManager = GetComponentInChildren<Player_SkillManager>();
+        health = GetComponent<Player_Health>();
+
+        UI.instance.SetPlayer(this);
+
         controls.Init(this);
 
         idleState = new(this, stateMachine, "Idle");
@@ -45,6 +51,7 @@ public class Player : Entity
     {
         base.Start();
         stateMachine.Initialize(idleState);
+
     }
 
     protected override void Update()

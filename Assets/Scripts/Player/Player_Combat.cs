@@ -4,8 +4,10 @@ public class Player_Combat : Entity_Combat
 {
     private Player player;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
+
         player = GetComponent<Player>();
     }
 

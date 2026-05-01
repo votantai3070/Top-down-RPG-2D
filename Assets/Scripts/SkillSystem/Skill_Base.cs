@@ -4,7 +4,7 @@ using static Skill_DataSO;
 public class Skill_Base : MonoBehaviour
 {
     public Player_SkillManager skillManager { get; private set; }
-    public Player player { get; private set; }
+    public Entity entity { get; private set; }
 
     [Space]
     public LayerMask whatIsEnemy;
@@ -23,7 +23,7 @@ public class Skill_Base : MonoBehaviour
     protected virtual void Awake()
     {
         skillManager = GetComponentInParent<Player_SkillManager>();
-        player = GetComponentInParent<Player>();
+        entity = GetComponentInParent<Entity>();
         lastTimeUsed = lastTimeUsed - cooldown;
     }
 

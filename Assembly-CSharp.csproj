@@ -99,6 +99,7 @@
     <Compile Include="Assets\Scripts\Enemy\Enemy_Health.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerState\Player_MoveState.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyState\Enemy_AttackState.cs" />
+    <Compile Include="Assets\Scripts\UI\UI_Ingame.cs" />
     <Compile Include="Assets\Scripts\Player\Player_AnimationEvents.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyState\Enemy_IdleState.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerState\Player_AttackState.cs" />
@@ -110,6 +111,7 @@
     <Compile Include="Assets\Scripts\DropSystem.cs" />
     <Compile Include="Assets\Scripts\Data\Skill_DataSO.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerState\Player_DashState.cs" />
+    <Compile Include="Assets\Scripts\UI\UI.cs" />
     <Compile Include="Assets\Scripts\Entity\EntityState.cs" />
     <Compile Include="Assets\Scripts\SkillSystem\FireSoulState\FireSould_ShootAntecipationState.cs" />
     <Compile Include="Assets\Scripts\SkillSystem\FireSoulState\FireSoul_CreateState.cs" />
@@ -120,6 +122,31 @@
     <Compile Include="Assets\Scripts\Player\PlayerState\Player_IdleState.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyState\Enemy_ChaseState.cs" />
     <Compile Include="Assets\Scripts\Player\Player_SkillManager.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile-2-Pass.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\SDFFunctions.hlsl" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
+    <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
+    <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
+    <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

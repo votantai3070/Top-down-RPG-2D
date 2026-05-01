@@ -17,15 +17,15 @@ public class Enemy_Health : Entity_Health
     {
         if (Input.GetKeyDown(KeyCode.K))
         {
-            TakeDamage(999, enemy.player);
+            TakeDamage(true, 999, enemy.player);
         }
     }
 
-    public override bool TakeDamage(float damage, Transform damagedDealer)
+    public override bool TakeDamage(bool isCrit, float damage, Transform damagedDealer)
     {
         enemy.TryToIdleState();
 
-        return base.TakeDamage(damage, damagedDealer);
+        return base.TakeDamage(isCrit, damage, damagedDealer);
     }
 
     protected override void UnBloody()

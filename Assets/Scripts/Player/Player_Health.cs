@@ -11,8 +11,13 @@ public class Player_Health : Entity_Health
         player = GetComponent<Player>();
     }
 
-    public override bool TakeDamage(float damage, Transform damagedDealer)
+    public float GetHealthPercent()
     {
-        return base.TakeDamage(damage, damagedDealer);
+        return currentHealth / player.entityStats.GetMaxHealth();
+    }
+
+    public override bool TakeDamage(bool isCrit, float damage, Transform damagedDealer)
+    {
+        return base.TakeDamage(isCrit, damage, damagedDealer);
     }
 }

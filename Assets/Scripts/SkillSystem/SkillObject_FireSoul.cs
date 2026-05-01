@@ -36,6 +36,7 @@ public class SkillObject_FireSoul : SkillObject_Base
         target = fireSoulManager.target;
         checkEnemyRadius = fireSoulManager.checkEnemyRadius;
         checkDamageRadius = fireSoulManager.checkDamageRadius;
+        entity = fireSoulManager.entity;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -45,7 +46,7 @@ public class SkillObject_FireSoul : SkillObject_Base
 
         Debug.Log("collision: " + collision.tag);
 
-        DamageEnemiesInRadius(transform, collision.tag, 10, fireSoulManager.player.transform);
+        DamageEnemiesInRadius(transform, collision.tag, fireSoulManager.entity.transform);
     }
 
     public void OnHit()

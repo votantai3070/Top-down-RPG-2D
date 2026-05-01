@@ -3,7 +3,13 @@ using UnityEngine;
 public class SkillObject_Base : MonoBehaviour
 {
     public StateMachine<SpellState> stateMachine { get; private set; }
+    public Rigidbody2D rb { get; private set; }
+    public Animator anim { get; private set; }
+    public Collider2D col { get; private set; }
 
+    protected Entity entity;
+
+    [Header("Detected Settings")]
     [SerializeField] protected LayerMask whatIsEnemy;
     [SerializeField] protected Transform targetCheck;
     [SerializeField] protected float checkEnemyRadius = 3;
@@ -13,18 +19,11 @@ public class SkillObject_Base : MonoBehaviour
     [Header("Attack Settings")]
     private float lastAttackTime = -999f;
     [SerializeField] private float attackCooldownGuard = 0.1f; // 100ms
-
-    public Rigidbody2D rb { get; private set; }
-    public Animator anim { get; private set; }
-    public Collider2D col { get; private set; }
-
-    protected Entity entity;
-    protected Player player;
-    //protected Entity_Stats playerStats;
     //protected DamageScaleData damageScale;
     //protected ElementType currentElement;
     protected Transform lastTarget;
     protected bool targetGoHit;
+    protected SkillUpgradeType upgradeType;
 
     protected virtual void Awake()
     {
@@ -46,7 +45,7 @@ public class SkillObject_Base : MonoBehaviour
         stateMachine.currentState.Update();
     }
 
-    protected void DamageEnemiesInRadius(Transform t, string targetStr, int damage, Transform damageDealer)
+    protected void DamageEnemiesInRadius(Transform t, string targetStr, Transform damageDealer)
     {
         if (!CanAttack()) return; // Guard against attacking too frequently
 
@@ -69,7 +68,9 @@ public class SkillObject_Base : MonoBehaviour
             //int physicalDamage = (int)attackData.physicalDamage;
             //int elementalDamage = (int)attackData.elementalDamage;
 
-            targetGoHit = damageable.TakeDamage(damage, damageDealer);
+            int damage = (int)entity.entityStats.GetSkillDamage(upgradeType, out bool isCrit);
+
+            targetGoHit = damageable.TakeDamage(isCrit, damage, damageDealer);
 
             //if (element != ElementType.None)
             //target.GetComponent<Entity_StatusHandler>().ApplyStatusEffect(element, attackData.effectData);

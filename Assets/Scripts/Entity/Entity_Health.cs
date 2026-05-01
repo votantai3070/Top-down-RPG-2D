@@ -1,7 +1,10 @@
+using System;
 using UnityEngine;
 
 public class Entity_Health : MonoBehaviour, IDamageable
 {
+    public Action OnHealthChanged;
+
     protected Entity entity;
 
     [Space]
@@ -21,13 +24,15 @@ public class Entity_Health : MonoBehaviour, IDamageable
     {
     }
 
-    public virtual bool TakeDamage(float damage, Transform damagedDealer)
+    public virtual bool TakeDamage(bool isCrit, float damage, Transform damagedDealer)
     {
         if (currentHealth <= 0)
             return false;
 
         TakeKnockback(damagedDealer, damage);
         currentHealth -= (int)damage;
+
+        OnHealthChanged?.Invoke();
 
         UnBloody();
 
@@ -51,4 +56,6 @@ public class Entity_Health : MonoBehaviour, IDamageable
 
         entity?.KnockBack(damagedDealer, averangeDamage);
     }
+
+    public int GetCurrentHealth() => currentHealth;
 }

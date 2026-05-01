@@ -27,7 +27,7 @@ public class Skill_AbsorbSoul : Skill_Base
 
     public void AbsorbSoul(SkillObject_Soul soul)
     {
-        if (Vector3.Distance(soul.transform.position, player.transform.position) > distance)
+        if (Vector3.Distance(soul.transform.position, entity.transform.position) > distance)
             return;
     }
 }

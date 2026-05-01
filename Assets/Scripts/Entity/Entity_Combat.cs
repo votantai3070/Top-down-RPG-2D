@@ -18,7 +18,7 @@ public class Entity_Combat : MonoBehaviour
 
     private bool canHit;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         entity = GetComponent<Entity>();
     }
@@ -45,7 +45,13 @@ public class Entity_Combat : MonoBehaviour
                 hitThisAttack.Add(damageable);
 
                 float dealerDamage = entity.entityStats.GetPhysicalDamage(out bool isCriticalHit);
-                damageable.TakeDamage(dealerDamage, dealer.transform);
+
+                canHit = damageable.TakeDamage(isCriticalHit, dealerDamage, dealer.transform);
+
+                if (canHit)
+                {
+
+                }
             }
         }
     }
