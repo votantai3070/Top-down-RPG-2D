@@ -437,6 +437,7 @@ GameObject:
   - component: {fileID: 575607128}
   - component: {fileID: 575607130}
   - component: {fileID: 575607131}
+  - component: {fileID: 575607133}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -550,7 +551,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cae0edadd9d986c43bcbe860bb3cfb43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Entity_Health
-  health: 100
+  currentHealth: 0
 --- !u!61 &575607132
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -597,6 +598,71 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.8966644, y: 1.3100069}
   m_EdgeRadius: 0
+--- !u!114 &575607133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 575607126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c84d256e2445d1f4da5f90092c7863c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Entity_Stats
+  defaultStatSetup: {fileID: 11400000, guid: 88b44131fbacb964e9decefca3de8aec, type: 2}
+  resource:
+    maxHealth:
+      baseValue: 100
+      modifiers: []
+    regenHealth:
+      baseValue: 0
+      modifiers: []
+  major:
+    strength:
+      baseValue: 0
+      modifiers: []
+    agility:
+      baseValue: 0
+      modifiers: []
+    intelligence:
+      baseValue: 0
+      modifiers: []
+    vitality:
+      baseValue: 0
+      modifiers: []
+  offense:
+    attackSpeed:
+      baseValue: 0
+      modifiers: []
+    damage:
+      baseValue: 50
+      modifiers: []
+    critDamage:
+      baseValue: 0
+      modifiers: []
+    critChance:
+      baseValue: 0
+      modifiers: []
+    armorReduction:
+      baseValue: 0
+      modifiers: []
+  defense:
+    armor:
+      baseValue: 0
+      modifiers: []
+    evasion:
+      baseValue: 0
+      modifiers: []
+    fireResistance:
+      baseValue: 0
+      modifiers: []
+    iceResistance:
+      baseValue: 0
+      modifiers: []
+    lightninghResistance:
+      baseValue: 0
+      modifiers: []
 --- !u!1 &597912174
 GameObject:
   m_ObjectHideFlags: 0

@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class Entity_Combat : MonoBehaviour
 {
+    public Entity entity { get; private set; }
+
     [SerializeField] private HashSet<IDamageable> hitThisAttack = new();
 
     [SerializeField] protected Transform attackArea;
@@ -15,6 +17,11 @@ public class Entity_Combat : MonoBehaviour
     [SerializeField] private float attackCooldownGuard = 0.1f; // 100ms
 
     private bool canHit;
+
+    private void Awake()
+    {
+        entity = GetComponent<Entity>();
+    }
 
     private void Update()
     {
@@ -36,7 +43,9 @@ public class Entity_Combat : MonoBehaviour
             {
                 if (hitThisAttack.Contains(damageable)) continue;
                 hitThisAttack.Add(damageable);
-                damageable.TakeDamage(dealer.attackDamage, dealer.transform);
+
+                float dealerDamage = entity.entityStats.GetPhysicalDamage(out bool isCriticalHit);
+                damageable.TakeDamage(dealerDamage, dealer.transform);
             }
         }
     }

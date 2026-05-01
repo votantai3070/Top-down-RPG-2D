@@ -4,6 +4,7 @@ using UnityEngine;
 public class Entity : MonoBehaviour
 {
     public Entity_Combat entityCombat { get; private set; }
+    public Entity_Stats entityStats { get; private set; }
     public StateMachine<EntityState> stateMachine { get; private set; }
     public Rigidbody2D rb { get; private set; }
     public Animator anim { get; private set; }
@@ -11,12 +12,11 @@ public class Entity : MonoBehaviour
     public float xIdleAndAttack { get; set; }
     public float yIdleAndAttack { get; set; }
 
-    [Header("Entity Stats")]
+    [Header("Entity Stat")]
     public float moveSpeed = 5;
     public float attackSpeed = 1;
     public float attackRange = 2;
     public float attackRadius = 1f;
-    public float attackDamage = 10;
 
     [Header("Knockback")]
     [SerializeField] private Vector2 knockBackPower = new Vector2(5f, 5f);
@@ -30,11 +30,13 @@ public class Entity : MonoBehaviour
 
     protected virtual void Awake()
     {
+        entityStats = GetComponent<Entity_Stats>();
+        entityCombat = GetComponent<Entity_Combat>();
+
         stateMachine = new();
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponentInChildren<Animator>();
 
-        entityCombat = GetComponent<Entity_Combat>();
 
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         rb.gravityScale = 0f;
@@ -42,6 +44,7 @@ public class Entity : MonoBehaviour
 
     protected virtual void Start()
     {
+        attackSpeed = entityStats.GetStatByType(StatType.AttackSpeed).GetValue();
     }
 
     protected virtual void Update()

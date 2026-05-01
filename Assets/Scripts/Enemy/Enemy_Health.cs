@@ -13,7 +13,7 @@ public class Enemy_Health : Entity_Health
         dropSystem = GetComponent<DropSystem>();
     }
 
-    private void Update()
+    protected override void Update()
     {
         if (Input.GetKeyDown(KeyCode.K))
         {
@@ -30,7 +30,7 @@ public class Enemy_Health : Entity_Health
 
     protected override void UnBloody()
     {
-        if (health <= 0)
+        if (currentHealth <= 0)
         {
             enemy.TryToDieState();
             dropSystem.SpawnDrop();
@@ -40,6 +40,6 @@ public class Enemy_Health : Entity_Health
 
     private void OnDisable()
     {
-        health = maxHealth;
+        currentHealth = (int)entity.entityStats.GetMaxHealth();
     }
 }

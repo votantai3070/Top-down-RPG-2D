@@ -2,26 +2,32 @@ using UnityEngine;
 
 public class Entity_Health : MonoBehaviour, IDamageable
 {
-    private Entity entity;
-    public int health;
-    protected int maxHealth = 100;
+    protected Entity entity;
+
+    [Space]
+    [SerializeField] protected int currentHealth;
 
     protected virtual void Awake()
     {
         entity = GetComponent<Entity>();
     }
 
-    private void Update()
+    protected virtual void Start()
+    {
+        currentHealth = (int)entity.entityStats.GetMaxHealth();
+    }
+
+    protected virtual void Update()
     {
     }
 
     public virtual bool TakeDamage(float damage, Transform damagedDealer)
     {
-        if (health <= 0)
+        if (currentHealth <= 0)
             return false;
 
         TakeKnockback(damagedDealer, damage);
-        health -= (int)damage;
+        currentHealth -= (int)damage;
 
         UnBloody();
 

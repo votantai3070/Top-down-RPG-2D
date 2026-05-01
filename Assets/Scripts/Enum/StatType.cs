@@ -1,0 +1,23 @@
+public enum StatType
+{
+    MaxHealth,
+    RegenHealth,
+    Strength,
+    Agility,
+    Intelligence,
+    Vitality,
+    Armor,
+    Evasion,
+    FireResistance,
+    IceResistance,
+    LightningResistance,
+    Damage,
+    CriticalChance,
+    CriticalDamage,
+    AttackSpeed,
+    ArmorReduction,
+    FireDamage,
+    IceDamage,
+    LightningDamage,
+    ElementalDamage,
+}

@@ -248,6 +248,7 @@ GameObject:
   - component: {fileID: 6411094133754084699}
   - component: {fileID: 1401499105440479791}
   - component: {fileID: 4685216884774553067}
+  - component: {fileID: -6143919409389315710}
   m_Layer: 6
   m_Name: Enemy_Slime
   m_TagString: Enemy
@@ -352,7 +353,6 @@ MonoBehaviour:
   attackSpeed: 1
   attackRange: 2
   attackRadius: 1
-  attackDamage: 10
   knockBackPower: {x: 5, y: 5}
   heavyKnockBackPower: {x: 10, y: 10}
   knockBackDuration: 0.1
@@ -399,7 +399,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 043c92e21246e034c9e60f5ae050329a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy_Health
-  health: 100
+  currentHealth: 0
 --- !u!114 &4685216884774553067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -414,6 +414,71 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DropSystem
   dropPrefabs:
   - {fileID: 2304869432924025883, guid: 400abfd31abe9e64590bdc316d855097, type: 3}
+--- !u!114 &-6143919409389315710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3547200286111319526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c84d256e2445d1f4da5f90092c7863c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Entity_Stats
+  defaultStatSetup: {fileID: 0}
+  resource:
+    maxHealth:
+      baseValue: 100
+      modifiers: []
+    regenHealth:
+      baseValue: 0
+      modifiers: []
+  major:
+    strength:
+      baseValue: 0
+      modifiers: []
+    agility:
+      baseValue: 0
+      modifiers: []
+    intelligence:
+      baseValue: 0
+      modifiers: []
+    vitality:
+      baseValue: 0
+      modifiers: []
+  offense:
+    attackSpeed:
+      baseValue: 0
+      modifiers: []
+    damage:
+      baseValue: 0
+      modifiers: []
+    critDamage:
+      baseValue: 0
+      modifiers: []
+    critChance:
+      baseValue: 0
+      modifiers: []
+    armorReduction:
+      baseValue: 0
+      modifiers: []
+  defense:
+    armor:
+      baseValue: 0
+      modifiers: []
+    evasion:
+      baseValue: 0
+      modifiers: []
+    fireResistance:
+      baseValue: 0
+      modifiers: []
+    iceResistance:
+      baseValue: 0
+      modifiers: []
+    lightninghResistance:
+      baseValue: 0
+      modifiers: []
 --- !u!1 &8446320465977628387
 GameObject:
   m_ObjectHideFlags: 0
