@@ -36,7 +36,6 @@ public class Player : Entity
         skillManager = GetComponentInChildren<Player_SkillManager>();
         health = GetComponent<Player_Health>();
 
-        UI.instance.SetPlayer(this);
 
         controls.Init(this);
 
@@ -50,6 +49,9 @@ public class Player : Entity
     protected override void Start()
     {
         base.Start();
+
+        UI.instance.SetPlayer(this);
+
         stateMachine.Initialize(idleState);
 
     }

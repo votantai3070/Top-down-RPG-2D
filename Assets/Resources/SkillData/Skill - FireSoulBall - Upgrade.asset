@@ -10,14 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2b8e413113d6c5a499648b98dc13fe60, type: 3}
-  m_Name: Skill - FireSoulBall
+  m_Name: Skill - FireSoulBall - Upgrade
   m_EditorClassIdentifier: Assembly-CSharp::Skill_DataSO
+  saveId: 4673b2e3812eaff4f9978753e7e50799
   displayName: Fire Soul Ball
-  description: 
+  description: Launch a fire soul toward an enemy, dealing damage and applying a
+    burn over time.
   icon: {fileID: 0}
-  cost: 0
-  unlockedByDefault: 0
   skillType: 5
   upgradeData:
-    upgradeType: 11
+    upgradeType: 12
     cooldown: 2
+    distanceToAttack: 10
+    attackRadius: 5
+    speed: 8
+  canUpgrade: 0
+  upgradeBoostChance: 30
+  skillRarity: 325
+  skillRollChance: 67.6
+  maxSkillRollChance: 81.2

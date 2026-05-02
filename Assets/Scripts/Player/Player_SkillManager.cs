@@ -20,7 +20,8 @@ public class Player_SkillManager : MonoBehaviour
     {
         foreach (var spell in allSkills)
         {
-            spell.TryUseSkill();
+            if (spell.upgradeType != SkillUpgradeType.None)
+                spell.TryUseSkill();
         }
     }
 
@@ -42,4 +43,5 @@ public class Player_SkillManager : MonoBehaviour
                 return null;
         }
     }
+
 }

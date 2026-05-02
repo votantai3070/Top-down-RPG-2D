@@ -25,7 +25,7 @@ public class ControlsManager : MonoBehaviour
 
     private void Update()
     {
-        SetupLookInput();
+        //SetupLookInput();
     }
 
     public void Init(Player owner)

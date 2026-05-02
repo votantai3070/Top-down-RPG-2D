@@ -14,7 +14,7 @@ public class Skill_FireSoul : Skill_Base
         if (!CanUseSkill())
             return;
 
-        if (Vector2.Distance(target.position, transform.position) < checkEnemyRadius)
+        if (Vector2.Distance(target.position, transform.root.position) < checkEnemyRadius)
         {
             if (upgradeType == SkillUpgradeType.FireSoul)
             {

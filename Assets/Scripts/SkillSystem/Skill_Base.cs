@@ -13,7 +13,7 @@ public class Skill_Base : MonoBehaviour
 
     [Header("General details")]
     [SerializeField] protected SkillType skillType;
-    [SerializeField] protected SkillUpgradeType upgradeType;
+    public SkillUpgradeType upgradeType;
     [SerializeField] protected float cooldown;
     public float speed;
     public float checkEnemyRadius;
@@ -40,7 +40,7 @@ public class Skill_Base : MonoBehaviour
         speed = upgrade.speed;
         checkEnemyRadius = upgrade.distanceToAttack;
         checkDamageRadius = upgrade.attackRadius;
-
+        skillData.SetUpgrade(true);
         //damageScaleData = upgrade.damageScale;
 
         //player.ui.ingameUI.GetSkillSlot(skillType).SetupSkillSlot(skillData);
