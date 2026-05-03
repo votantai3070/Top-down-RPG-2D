@@ -51,7 +51,7 @@ public class Skill_Base : MonoBehaviour
     {
         if (upgradeType == SkillUpgradeType.None)
         {
-            Debug.Log("No Upgrade");
+            //Debug.Log("No Upgrade");
             return false;
         }
 

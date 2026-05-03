@@ -13,7 +13,7 @@ public class Player_Health : Entity_Health
 
     public float GetHealthPercent()
     {
-        return currentHealth / player.entityStats.GetMaxHealth();
+        return currentHealth / player.stats.GetMaxHealth();
     }
 
     public override bool TakeDamage(bool isCrit, float damage, Transform damagedDealer)

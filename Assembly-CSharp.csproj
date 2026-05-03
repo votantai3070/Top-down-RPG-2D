@@ -9,7 +9,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <ProjectGuid>{9CB05AD3-2050-8216-D0BC-635B87CD8D40}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -78,6 +79,7 @@
     <Compile Include="Assets\Scripts\Data\Skill_ListDataSO.cs" />
     <Compile Include="Assets\Scripts\StatSystem\Stat_ResourceGroup.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyState\EnemyState.cs" />
+    <Compile Include="Assets\Scripts\Player\Player_Stats.cs" />
     <Compile Include="Assets\Scripts\Enum\CardType.cs" />
     <Compile Include="Assets\Scripts\ControlManager\PlayerControls.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyState\Enemy_DeadState.cs" />
@@ -101,9 +103,11 @@
     <Compile Include="Assets\Scripts\Enemy\Enemy.cs" />
     <Compile Include="Assets\Scripts\Enum\StatType.cs" />
     <Compile Include="Assets\Scripts\Enemy\Enemy_Health.cs" />
+    <Compile Include="Assets\Scripts\LevelSystem.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerState\Player_MoveState.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyState\Enemy_AttackState.cs" />
     <Compile Include="Assets\Scripts\UI\UI_Ingame.cs" />
+    <Compile Include="Assets\Scripts\Enemy\Enemy_Stats.cs" />
     <Compile Include="Assets\Scripts\Player\Player_AnimationEvents.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyState\Enemy_IdleState.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerState\Player_AttackState.cs" />
@@ -702,6 +706,10 @@
       <HintPath>Library\PackageCache\com.unity.collections@aea9d3bd5e19\Unity.Collections.Tests\System.IO.Hashing\System.IO.Hashing.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="DOTween">
+      <HintPath>Assets\Plugins\Demigiant\DOTween\DOTween.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
       <HintPath>Library\PackageCache\com.unity.visualscripting@191c0d7e3b69\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
       <Private>False</Private>
@@ -712,10 +720,6 @@
     </Reference>
     <Reference Include="System.Runtime.CompilerServices.Unsafe">
       <HintPath>Library\PackageCache\com.unity.collections@aea9d3bd5e19\Unity.Collections.Tests\System.Runtime.CompilerServices.Unsafe\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="DOTween">
-      <HintPath>Assets\Plugins\Demigiant\DOTween\DOTween.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEditor.iOS.Extensions.Xcode">

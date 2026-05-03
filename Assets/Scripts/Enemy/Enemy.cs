@@ -5,6 +5,7 @@ public class Enemy : Entity
     public Transform player { get; private set; }
     public Enemy_Combat combat { get; private set; }
     public Enemy_Health health { get; private set; }
+    public Enemy_Stats stats { get; private set; }
 
     public Enemy_IdleState idleState { get; private set; }
     public Enemy_MoveState moveState { get; private set; }
@@ -38,6 +39,7 @@ public class Enemy : Entity
 
         combat = GetComponent<Enemy_Combat>();
         health = GetComponent<Enemy_Health>();
+        stats = GetComponent<Enemy_Stats>();
 
         idleState = new(this, stateMachine, "Idle");
         moveState = new(this, stateMachine, "Move");
@@ -83,6 +85,8 @@ public class Enemy : Entity
     {
         this.player = player;
     }
+
+    public Player GetPlayer() => player.GetComponent<Player>();
 
     public bool IsPlayerInAttackRange()
     {

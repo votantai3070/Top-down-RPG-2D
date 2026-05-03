@@ -247,7 +247,7 @@ GameObject:
   - component: {fileID: 9158982008630937247}
   - component: {fileID: 6411094133754084699}
   - component: {fileID: 1401499105440479791}
-  - component: {fileID: -6143919409389315710}
+  - component: {fileID: -696934059846269045}
   - component: {fileID: 4685216884774553067}
   m_Layer: 6
   m_Name: Enemy_Slime
@@ -400,7 +400,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy_Health
   currentHealth: 0
---- !u!114 &-6143919409389315710
+--- !u!114 &-696934059846269045
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -409,9 +409,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 3547200286111319526}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c84d256e2445d1f4da5f90092c7863c3, type: 3}
+  m_Script: {fileID: 11500000, guid: 80a264d33956daf4ab23d0c2ea95edbe, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Entity_Stats
+  m_EditorClassIdentifier: Assembly-CSharp::Enemy_Stats
   defaultStatSetup: {fileID: 0}
   resource:
     maxHealth:
@@ -438,7 +438,7 @@ MonoBehaviour:
       baseValue: 0
       modifiers: []
     damage:
-      baseValue: 10
+      baseValue: 0
       modifiers: []
     critDamage:
       baseValue: 0
@@ -465,6 +465,8 @@ MonoBehaviour:
     lightninghResistance:
       baseValue: 0
       modifiers: []
+  baseExpDrop: 20
+  expScalingPerLevel: 0.2
 --- !u!114 &4685216884774553067
 MonoBehaviour:
   m_ObjectHideFlags: 0

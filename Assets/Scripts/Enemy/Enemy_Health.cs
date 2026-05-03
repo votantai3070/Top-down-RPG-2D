@@ -33,6 +33,7 @@ public class Enemy_Health : Entity_Health
         if (currentHealth <= 0)
         {
             enemy.TryToDieState();
+            enemy.GetPlayer().stats.GainExp(enemy.stats.GetExpDrop());
             dropSystem.SpawnDrop();
         }
     }
@@ -40,6 +41,6 @@ public class Enemy_Health : Entity_Health
 
     private void OnDisable()
     {
-        currentHealth = (int)entity.entityStats.GetMaxHealth();
+        currentHealth = (int)enemy.stats.GetMaxHealth();
     }
 }
