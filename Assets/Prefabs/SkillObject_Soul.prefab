@@ -127,7 +127,7 @@ GameObject:
   - component: {fileID: 1857434937596383297}
   - component: {fileID: 8751032049493259371}
   m_Layer: 0
-  m_Name: Soul
+  m_Name: SkillObject_Soul
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

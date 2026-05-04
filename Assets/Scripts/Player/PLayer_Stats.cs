@@ -22,6 +22,7 @@ public class Player_Stats : Entity_Stats
 
     private void HandleLevelUp(int newLevel)
     {
+        player?.ui?.OpenSkillBoard();
         player.ui?.ingameUI?.ShowLevelUpEffect(newLevel);
     }
 

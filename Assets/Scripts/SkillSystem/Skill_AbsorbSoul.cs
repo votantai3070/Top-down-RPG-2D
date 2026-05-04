@@ -3,6 +3,7 @@ using UnityEngine;
 public class Skill_AbsorbSoul : Skill_Base
 {
     [Header("Absorb Soul Settings")]
+    public GameObject soul;
     private float distance = .5f;
     public float speedOfSoul = 5f;
 

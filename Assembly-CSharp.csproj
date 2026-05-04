@@ -9,8 +9,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <ProjectGuid>{9CB05AD3-2050-8216-D0BC-635B87CD8D40}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -72,6 +71,7 @@
     <Compile Include="Assets\Scripts\SkillSystem\FireSoulState\FireSoul_State.cs" />
     <Compile Include="Assets\Scripts\StatSystem\Stat.cs" />
     <Compile Include="Assets\Scripts\UI\UI_SkillBoard\UI_SkillCard.cs" />
+    <Compile Include="Assets\Scripts\Enum\CardRarityType.cs" />
     <Compile Include="Assets\Scripts\SpawnSystem\SpawnSystem.cs" />
     <Compile Include="Assets\Scripts\StateMachine.cs" />
     <Compile Include="Assets\Scripts\SkillSystem\FireSoulState\FireSoul_ExplodeState.cs" />
@@ -79,7 +79,7 @@
     <Compile Include="Assets\Scripts\Data\Skill_ListDataSO.cs" />
     <Compile Include="Assets\Scripts\StatSystem\Stat_ResourceGroup.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyState\EnemyState.cs" />
-    <Compile Include="Assets\Scripts\Player\Player_Stats.cs" />
+    <Compile Include="Assets\Scripts\Player\PLayer_Stats.cs" />
     <Compile Include="Assets\Scripts\Enum\CardType.cs" />
     <Compile Include="Assets\Scripts\ControlManager\PlayerControls.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyState\Enemy_DeadState.cs" />
@@ -92,6 +92,7 @@
     <Compile Include="Assets\Scripts\Enemy\EnemyState\Enemy_GroundState.cs" />
     <Compile Include="Assets\Scripts\Enum\SkillType.cs" />
     <Compile Include="Assets\Scripts\StatSystem\Stat_MajorGroup.cs" />
+    <Compile Include="Assets\Scripts\SkillSystem\Skill_SpinningSword.cs" />
     <Compile Include="Assets\Scripts\SkillSystem\FireSoulState\FireSoul_IdleState.cs" />
     <Compile Include="Assets\Scripts\SkillSystem\Skill_Base.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyState\Enemy_MoveState.cs" />
@@ -117,6 +118,7 @@
     <Compile Include="Assets\Scripts\Player\Player.cs" />
     <Compile Include="Assets\Scripts\Player\Player_Health.cs" />
     <Compile Include="Assets\Scripts\SkillSystem\Skill_AbsorbSoul.cs" />
+    <Compile Include="Assets\Scripts\SkillSystem\SkillObject_SpinningSword.cs" />
     <Compile Include="Assets\Scripts\DropSystem.cs" />
     <Compile Include="Assets\Scripts\Data\Skill_DataSO.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerState\Player_DashState.cs" />

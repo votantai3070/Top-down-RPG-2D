@@ -15,8 +15,8 @@ public enum SkillUpgradeType
 
     // ------ Active Ability Upgrades ------
     // Skill Attack Upgrades
-    SpinningSlash,
-    SpinningSlashUpgrade, // Increase damage by 25% and reduce cooldown by 1 second.
+    SpinningSword,
+    SpinningSwordUpgrade, // Increase damage by 25% and reduce cooldown by 1 second.
     FireSoul,
     FireSoulUpgrade, // Increase damage by 30% and reduce cooldown by 1.5 seconds.
     SoulCleave,

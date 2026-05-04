@@ -45,7 +45,7 @@ public class SkillObject_Base : MonoBehaviour
         stateMachine.currentState.Update();
     }
 
-    protected void DamageEnemiesInRadius(Transform t, string targetStr, Transform damageDealer)
+    protected void DamageEnemiesInRadius(Transform t, Transform damageDealer)
     {
         if (!CanAttack()) return; // Guard against attacking too frequently
 
@@ -78,7 +78,8 @@ public class SkillObject_Base : MonoBehaviour
             if (targetGoHit)
             {
                 Debug.Log("Gay dmg");
-                SetPhysicsActive(false);
+                if (upgradeType == SkillUpgradeType.FireSoul || upgradeType == SkillUpgradeType.FireSoulUpgrade)
+                    SetPhysicsActive(false);
                 //lastTarget = target.transform;
                 //target.GetComponent<Entity>().ElementalVfx(defaultDuration, element);
                 //player?.playerVfx.GetImapctVfx(target.transform, attackData.isCrit);

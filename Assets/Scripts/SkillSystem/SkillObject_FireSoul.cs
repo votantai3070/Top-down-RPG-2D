@@ -44,9 +44,7 @@ public class SkillObject_FireSoul : SkillObject_Base
         if (!collision.CompareTag("Enemy"))
             return;
 
-        Debug.Log("collision: " + collision.tag);
-
-        DamageEnemiesInRadius(transform, collision.tag, fireSoulManager.entity.transform);
+        DamageEnemiesInRadius(transform, fireSoulManager.entity.transform);
     }
 
     public void OnHit()

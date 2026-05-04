@@ -25,7 +25,8 @@ public class ControlsManager : MonoBehaviour
 
     private void Update()
     {
-        //SetupLookInput();
+        if (inputActions.Player.enabled)
+            SetupLookInput();
     }
 
     public void Init(Player owner)
@@ -33,7 +34,7 @@ public class ControlsManager : MonoBehaviour
         player = owner;
     }
 
-    private void SetupLookInput()
+    public void SetupLookInput()
     {
         // Mouse input takes priority over gamepad input for looking direction
         if (Mouse.current != null)

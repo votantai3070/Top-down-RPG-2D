@@ -9,7 +9,7 @@ public enum SkillType
 
     // ------ Active Abilities ------
     // Skill Attacks
-    SpinningSlash, // A powerful spinning attack that hits all nearby enemies.
+    SpinningSword, // A powerful spinning attack that hits all nearby enemies.
     FireSoul, // Unleash a fiery soul blast that damages enemies in a line.
     SoulCleave, // A sweeping attack that cleaves through enemies, dealing damage
     SpriritArrow, // Shoot a spirit arrow that pierces through enemies, dealing damage and applying a debuff.

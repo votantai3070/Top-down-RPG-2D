@@ -14,6 +14,7 @@ public class UI : MonoBehaviour
         instance = this;
 
         ingameUI = GetComponentInChildren<UI_Ingame>(true);
+        skillBoardUI = GetComponentInChildren<UI_SkillBoard>(true);
     }
 
     public void SetPlayer(Player player)

@@ -21,7 +21,8 @@ public class Skill_DataSO : ScriptableObject
     [Range(0, 100)]
     public float upgradeBoostChance = 30f;
 
-    [Header("Skill Roll")]
+    [Header("Skill Card")]
+    public CardType cardType;
     [Range(0, 1000)]
     public int skillRarity = 100;
     [Range(0, 100)]

@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class Skill_FireSoul : Skill_Base
 {
+    [Header("Fire Soul Ball Config")]
+    [SerializeField] private GameObject fireSoulGo;
+
     protected override void Awake()
     {
         base.Awake();
@@ -32,7 +35,7 @@ public class Skill_FireSoul : Skill_Base
     // Create fire soul
     public void CreateFireSoul(Vector3 scale)
     {
-        GameObject fireSoul = ObjectPool.instance.Spawn("FireSoul", transform.position, transform.rotation);
+        GameObject fireSoul = ObjectPool.instance.Spawn(fireSoulGo.name, transform.position, transform.rotation);
         fireSoul.transform.localScale = scale;
         fireSoul.GetComponent<SkillObject_FireSoul>().SetupFireSoul(this);
     }

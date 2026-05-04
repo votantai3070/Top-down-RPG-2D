@@ -1572,11 +1572,14 @@ MonoBehaviour:
   - tag: Enemy_Slime
     prefab: {fileID: 3547200286111319526, guid: 8abf69ca59ab109499d2d8341210b2cd, type: 3}
     initialSize: 3
-  - tag: Soul
+  - tag: SkillObject_Soul
     prefab: {fileID: 2304869432924025883, guid: 400abfd31abe9e64590bdc316d855097, type: 3}
     initialSize: 3
-  - tag: FireSoul
+  - tag: SkillObject_FireSoul
     prefab: {fileID: 1168510075856658422, guid: 2c4d90c89e9a6a0478f0bc2f0c8721d2, type: 3}
+    initialSize: 3
+  - tag: SkillObject_SpinningSword
+    prefab: {fileID: 4526101274153675507, guid: 10f88ec3e81a2d046a870bd5627c32d3, type: 3}
     initialSize: 3
 --- !u!4 &597912176
 Transform:
@@ -1755,7 +1758,7 @@ RectTransform:
   m_Father: {fileID: 775203865}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0.235, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1984,7 +1987,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &818823992
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2386,6 +2389,7 @@ GameObject:
   - component: {fileID: 1261357900}
   - component: {fileID: 1261357901}
   - component: {fileID: 1261357902}
+  - component: {fileID: 1261357903}
   m_Layer: 7
   m_Name: Skill
   m_TagString: Untagged
@@ -2431,6 +2435,7 @@ MonoBehaviour:
   speed: 0
   checkEnemyRadius: 2
   checkDamageRadius: 0
+  soul: {fileID: 2304869432924025883, guid: 400abfd31abe9e64590bdc316d855097, type: 3}
   speedOfSoul: 5
 --- !u!114 &1261357902
 MonoBehaviour:
@@ -2455,6 +2460,36 @@ MonoBehaviour:
   speed: 5
   checkEnemyRadius: 10
   checkDamageRadius: 3
+  fireSoulGo: {fileID: 1168510075856658422, guid: 2c4d90c89e9a6a0478f0bc2f0c8721d2, type: 3}
+--- !u!114 &1261357903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1261357899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f7b4c6b47c6a1e4c85ab1a8f273561c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Skill_SpinningSword
+  whatIsEnemy:
+    serializedVersion: 2
+    m_Bits: 64
+  target: {fileID: 0}
+  targetCheck: {fileID: 1261357900}
+  skillType: 4
+  upgradeType: 9
+  cooldown: 5
+  speed: 5
+  checkEnemyRadius: 3
+  checkDamageRadius: 0.6
+  swordPrefab: {fileID: 4526101274153675507, guid: 10f88ec3e81a2d046a870bd5627c32d3, type: 3}
+  orbitRadius: 1.5
+  orbitSpeed: 180
+  duration: 5
+  swordCount: 2
+  activeSwords: []
 --- !u!1 &1316584240
 GameObject:
   m_ObjectHideFlags: 0

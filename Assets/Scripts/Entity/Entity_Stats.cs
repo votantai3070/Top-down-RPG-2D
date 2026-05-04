@@ -110,8 +110,8 @@ public class Entity_Stats : MonoBehaviour
         switch (skillType)
         {
             // ------ Skill Attack ------
-            case SkillUpgradeType.SpinningSlash: return 1.4f;
-            case SkillUpgradeType.SpinningSlashUpgrade: return 1.75f; // +25% damage
+            case SkillUpgradeType.SpinningSword: return 1.4f;
+            case SkillUpgradeType.SpinningSwordUpgrade: return 1.75f; // +25% damage
 
             case SkillUpgradeType.FireSoul: return 1.5f;
             case SkillUpgradeType.FireSoulUpgrade: return 1.95f; // +30% damage
